@@ -21,7 +21,26 @@ namespace Patch
     }
 
     bool StaffExp::StaffEnchantmentGetSkillData(RE::EnchantmentItem* enchant, RE::MagicItem::SkillUsageData& skillUsage){
-        return false;
+        if (!skillUsage.effect)
+        {
+            skillUsage.effect = enchant->GetCostliestEffectItem();
+            
+            if (!skillUsage.effect)
+            {
+                return false;
+            }
+        }
+
+        float skillUsageCost = skillUsage.effect->cost;
+
+        // TODO: Compute enchant cost to override skillUsageCost with if NOT ignoring it
+
+        RE::EffectSetting* costliestBaseEffect = skillUsage.effect->baseEffect;
+        skillUsage.skill = costliestBaseEffect->data.associatedSkill;
+        skillUsage.magnitude = costliestBaseEffect->data.skillUsageMult*skillUsageCost;
+        skillUsage.custom = false; // Not sure what to do about this... seems to truly rely on unfinished RE work to do correctly...
+
+        return RE::ActorValue::kOneHanded <= skillUsage.skill && skillUsage.skill < RE::ActorValue::kHealth;
     }
 
     decltype(StaffExp::EnchantmentGetSkillData)* StaffExp::originalEnchantmentGetSkillData_{nullptr};
