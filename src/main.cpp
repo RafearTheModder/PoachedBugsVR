@@ -62,11 +62,11 @@ extern "C" DLLEXPORT bool SKSEAPI SKSEPlugin_Load(const SKSE::LoadInterface* a_s
 	SKSE::Init(a_skse);
 	dataHandler::readSettings();
 
-	if(settings::reflectDamageLimitRemoval)
+	if(settings.reflectDamageLimitRemoval)
 	{
 		reflectDamagePatch::InstallPatch();
 	}
-	if(settings::scrollsGrantExperience)
+	if(settings.scrollsGrantExperience)
 	{
 		scrollExpPatch::InstallPatch();
 	}

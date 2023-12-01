@@ -7,8 +7,10 @@ public:
 	static void readSettings();
 };
 
-namespace settings 
+struct settingsStorage
 {
-	extern bool reflectDamageLimitRemoval;
-	extern bool scrollsGrantExperience;
-}
+	bool reflectDamageLimitRemoval=true;
+	bool scrollsGrantExperience=true;
+};
+
+extern settingsStorage settings;
