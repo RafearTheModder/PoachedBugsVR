@@ -1,4 +1,4 @@
-#include "patches.h"
+#include "Patches/Patch.h"
 #include "dataHandler.h"
 
 
@@ -62,8 +62,7 @@ extern "C" DLLEXPORT bool SKSEAPI SKSEPlugin_Load(const SKSE::LoadInterface* a_s
 	SKSE::Init(a_skse);
 	dataHandler::readSettings();
 
-	reflectDamagePatch::InstallPatch();
-	scrollExpPatch::InstallPatch();
+	Patch::InstallAllPatches();
 
 	return true;
 }
