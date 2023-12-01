@@ -1,5 +1,6 @@
 #pragma once
 #include "RE/Skyrim.h"
+#include "dataHandler.h"
 
 /*DONE*/
 class scrollExpPatch
