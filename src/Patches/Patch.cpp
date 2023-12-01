@@ -3,6 +3,7 @@
 #include "ReflectDamage.h"
 #include "ScrollExp.h"
 #include "PoisonResistance.h"
+#include "StaffExp.h"
 
 namespace Patch
 {
@@ -11,5 +12,6 @@ namespace Patch
         ReflectDamage::InstallPatch();
         ScrollExp::InstallPatch();
         PoisonResistance::InstallPatch();
+        StaffExp::InstallPatch();
     }
 } // namespace Patch
