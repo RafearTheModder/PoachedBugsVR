@@ -2,6 +2,7 @@
 #include "dataHandler.h"
 #include "ReflectDamage.h"
 #include "ScrollExp.h"
+#include "PoisonResistance.h"
 
 namespace Patch
 {
@@ -9,5 +10,6 @@ namespace Patch
     {
         ReflectDamage::InstallPatch();
         ScrollExp::InstallPatch();
+        PoisonResistance::InstallPatch();
     }
 } // namespace Patch

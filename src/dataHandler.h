@@ -11,6 +11,7 @@ struct settingsStorage
 {
 	bool reflectDamageLimitRemoval=true;
 	bool scrollsGrantExperience=true;
+	bool poisonsUseOtherResistances=true;
 };
 
 extern settingsStorage settings;

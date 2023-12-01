@@ -10,4 +10,5 @@ void dataHandler::readSettings() {
 
 	settings.reflectDamageLimitRemoval = ini.GetBoolValue("General", "reflectDamageLimitRemoval", true);
 	settings.scrollsGrantExperience = ini.GetBoolValue("General", "scrollsGrantExperience", true);
+	settings.poisonsUseOtherResistances = ini.GetBoolValue("General", "poisonsUseOtherResistances", true);
 }
