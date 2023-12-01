@@ -7,6 +7,9 @@ namespace Patch
         {
             REL::Relocation<uintptr_t> enchantmentItemVtable{ RE::VTABLE_EnchantmentItem[0] }; // EnchantmentItem::VirtualFunctionTable, index 0x60 contains GetSkillUsageData
             StaffExp::originalEnchantmentGetSkillData_ = enchantmentItemVtable.write_vfunc(0x60, StaffExp::EnchantmentGetSkillData);
+            REL::Relocation<uintptr_t> spellItemVtable{ RE::VTABLE_SpellItem[0] }; // SpellItem::VirtualFunctionTable, index 0x60 contains GetSkillUsageData
+            StaffExp::spellItemGetSkillData_ = reinterpret_cast<decltype(StaffExp::spellItemGetSkillData_)>(reinterpret_cast<std::uintptr_t*>(spellItemVtable.address())[0x60]);
+            // REL::safe_write(reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(enchantmentItemVtable.address())[0x60])), reinterpret_cast<std::uintptr_t>(StaffExp::EnchantmentGetSkillData));
             logger::info("\"Staves grant experience\" patch installed!");
         }
         else
@@ -20,27 +23,20 @@ namespace Patch
     }
 
     bool StaffExp::StaffEnchantmentGetSkillData(RE::EnchantmentItem* enchant, RE::MagicItem::SkillUsageData& skillUsage){
-        if (!skillUsage.effect)
+        bool resetAutoCalcFlag = false;
+        if (settings.staffExperienceIgnoresEnchantmentCost && !enchant->IsAutoCalc())
         {
-            skillUsage.effect = enchant->GetCostliestEffectItem();
-            
-            if (!skillUsage.effect)
-            {
-                return false;
-            }
+            resetAutoCalcFlag = true;
+            enchant->GetData()->flags ^= 1;
         }
-
-        float skillUsageCost = skillUsage.effect->cost;
-
-        // TODO: Compute enchant cost to override skillUsageCost with if NOT ignoring it
-
-        RE::EffectSetting* costliestBaseEffect = skillUsage.effect->baseEffect;
-        skillUsage.skill = costliestBaseEffect->data.associatedSkill;
-        skillUsage.magnitude = costliestBaseEffect->data.skillUsageMult*skillUsageCost;
-        skillUsage.custom = false; // Not sure what to do about this... seems to truly rely on unfinished RE work to do correctly...
-
-        return RE::ActorValue::kOneHanded <= skillUsage.skill && skillUsage.skill < RE::ActorValue::kHealth;
+        bool retVal = spellItemGetSkillData_(enchant, skillUsage);
+        if (resetAutoCalcFlag)
+        {
+            enchant->GetData()->flags ^= 1;
+        }
+        return retVal;
     }
 
     REL::Relocation<decltype(StaffExp::EnchantmentGetSkillData)> StaffExp::originalEnchantmentGetSkillData_{};
+    decltype(StaffExp::EnchantmentGetSkillData)* StaffExp::spellItemGetSkillData_{nullptr};
 } // namespace Patch

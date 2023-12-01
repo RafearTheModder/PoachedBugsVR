@@ -12,4 +12,5 @@ void dataHandler::readSettings() {
 	settings.scrollsGrantExperience = ini.GetBoolValue("General", "scrollsGrantExperience", true);
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("General", "poisonsUseOtherResistances", true);
 	settings.scrollsGrantExperience = ini.GetBoolValue("General", "stavesGrantExperience", true);
+	settings.staffExperienceIgnoresEnchantmentCost = ini.GetBoolValue("General", "staffExperienceIgnoresEnchantmentCost", true);
 }

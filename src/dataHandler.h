@@ -13,6 +13,7 @@ struct settingsStorage
 	bool scrollsGrantExperience=true;
 	bool poisonsUseOtherResistances=true;
 	bool stavesGrantExperience=true;
+	bool staffExperienceIgnoresEnchantmentCost=true;
 };
 
 extern settingsStorage settings;
