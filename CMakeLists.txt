@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 set(NAME "PoachedBugsVR")
-set(VERSION 1.0.0)
+set(VERSION 0.1.0)
 
 # ---- Options ----
 
@@ -37,7 +37,6 @@ if(BUILD_SKYRIMVR)
 	set_from_environment(SkyrimVRPath)
 	set(SkyrimPath ${SkyrimVRPath})
 	set(SkyrimVersion "Skyrim VR")
-	set(VERSION "${VERSION}.1")
 else()
 	set(CommonLibName "CommonLibSSE")
 	set_from_environment(Skyrim64Path)
