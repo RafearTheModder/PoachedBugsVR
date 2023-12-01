@@ -16,7 +16,39 @@ namespace Patch
     };
     
     RE::BSContainer::ForEachResult ImproveAllEnchantmentEffects::AddEffect(RE::CraftingSubMenus::EnchantConstructMenu::CreateEffectFunctor* createEffectFunctor, RE::Effect* effect){
-        return originalAddEffect_(createEffectFunctor, effect);
+        logger::info("ImproveAllEnchantmentEffects::AddEffect - Begin");
+        logger::info(FMT_STRING("                                        - createEffectFunctor->createdEffects.size() = {}"), createEffectFunctor->createdEffects.size());
+        logger::info(FMT_STRING("                                        - effect->effectItem.magnitude = {}"), effect->effectItem.magnitude);
+        logger::info(FMT_STRING("                                        - effect->effectItem.area = {}"), effect->effectItem.area);
+        logger::info(FMT_STRING("                                        - effect->effectItem.duration = {}"), effect->effectItem.duration);
+        RE::Effect* actualCostliestEffect = createEffectFunctor->costliestEffect;
+
+        // logger::info(FMT_STRING("                                        - createEffectFunctor->costliestEffect = {}"), createEffectFunctor->costliestEffect);
+        logger::info("                                        - temporarily swapping costliest effect to force-trigger power scaling...");
+        createEffectFunctor->costliestEffect = effect;
+        // logger::info(FMT_STRING("                                        - createEffectFunctor->costliestEffect = {}"), createEffectFunctor->costliestEffect);
+
+        logger::info("                                        - originalAddEffect_()");
+        auto retval = originalAddEffect_(createEffectFunctor, effect);
+
+        // logger::info(FMT_STRING("                                        - createEffectFunctor->costliestEffect = {}"), createEffectFunctor->costliestEffect);
+        logger::info("                                        - restoring original costliest effect to avoid unwanted side-effects...");
+        createEffectFunctor->costliestEffect = actualCostliestEffect;
+        // logger::info(FMT_STRING("                                        - createEffectFunctor->costliestEffect = {}"), createEffectFunctor->costliestEffect);
+
+        logger::info(FMT_STRING("                                        - createEffectFunctor->createdEffects.size() = {}"), createEffectFunctor->createdEffects.size());
+        logger::info(FMT_STRING("                                        - effect->effectItem.magnitude = {}"), effect->effectItem.magnitude);
+        logger::info(FMT_STRING("                                        - effect->effectItem.area = {}"), effect->effectItem.area);
+        logger::info(FMT_STRING("                                        - effect->effectItem.duration = {}"), effect->effectItem.duration);
+        if (createEffectFunctor->createdEffects.size() > 0)
+        {
+            logger::info(FMT_STRING("                                        - createEffectFunctor->createdEffects[createEffectFunctor->createdEffects.size()-1].effectItem.magnitude = {}"), createEffectFunctor->createdEffects[createEffectFunctor->createdEffects.size()-1].effectItem.magnitude);
+            logger::info(FMT_STRING("                                        - createEffectFunctor->createdEffects[createEffectFunctor->createdEffects.size()-1].effectItem.area = {}"), createEffectFunctor->createdEffects[createEffectFunctor->createdEffects.size()-1].effectItem.area);
+            logger::info(FMT_STRING("                                        - createEffectFunctor->createdEffects[createEffectFunctor->createdEffects.size()-1].effectItem.duration = {}"), createEffectFunctor->createdEffects[createEffectFunctor->createdEffects.size()-1].effectItem.duration);
+        }
+ 
+        logger::info("ImproveAllEnchantmentEffects::AddEffect - End");
+        return retval;
     };
 
     REL::Relocation<decltype(ImproveAllEnchantmentEffects::AddEffect)> ImproveAllEnchantmentEffects::originalAddEffect_{};
