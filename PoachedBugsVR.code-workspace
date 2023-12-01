@@ -95,7 +95,13 @@
 			"xstring": "cpp",
 			"xtr1common": "cpp",
 			"xtree": "cpp",
-			"xutility": "cpp"
+			"xutility": "cpp",
+			"bitset": "cpp",
+			"coroutine": "cpp",
+			"cwctype": "cpp",
+			"regex": "cpp",
+			"stack": "cpp",
+			"unordered_set": "cpp"
 		}
 	}
 }
