@@ -130,12 +130,14 @@ set(SOURCES
 	src/main.cpp
 	src/Patches/Patch.cpp
 	src/Patches/ScrollExp.cpp
+	src/Patches/StaffExp.cpp
 	src/Patches/ReflectDamage.cpp
 	src/Patches/PoisonResistance.cpp
 	src/dataHandler.cpp
 	src/PCH.h
 	src/Patches/Patch.h
 	src/Patches/ScrollExp.h
+	src/Patches/StaffExp.h
 	src/Patches/ReflectDamage.h
 	src/Patches/PoisonResistance.h
 	src/dataHandler.h
