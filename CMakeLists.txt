@@ -130,13 +130,13 @@ find_path(CLIB_UTIL_INCLUDE_DIRS "ClibUtil/detail/SimpleIni.h")
 set(SOURCES
 	src/main.cpp
 	src/Patches/Patch.cpp
-	src/Patches/ScrollExpPatch.cpp
-	src/Patches/ReflectDamagePatch.cpp
+	src/Patches/ScrollExp.cpp
+	src/Patches/ReflectDamage.cpp
 	src/dataHandler.cpp
 	src/PCH.h
 	src/Patches/Patch.h
-	src/Patches/ScrollExpPatch.h
-	src/Patches/ReflectDamagePatch.h
+	src/Patches/ScrollExp.h
+	src/Patches/ReflectDamage.h
 	src/dataHandler.h
 )
 

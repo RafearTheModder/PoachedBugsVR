@@ -1,8 +1,8 @@
-#include "ScrollExpPatch.h"
+#include "ScrollExp.h"
 
 namespace Patch
 {
-    void ScrollExpPatch::InstallPatch() {
+    void ScrollExp::InstallPatch() {
         if(settings.scrollsGrantExperience)
         {
             // Replace ScrollItem::GetSkillUsageData with SpellItem::GetSkillUsageData

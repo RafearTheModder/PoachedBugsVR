@@ -5,7 +5,7 @@
 
 namespace Patch
 {
-    class ReflectDamagePatch
+    class ScrollExp
     {
     public:
         static void InstallPatch();

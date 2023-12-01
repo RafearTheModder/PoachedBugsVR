@@ -1,8 +1,8 @@
-#include "ReflectDamagePatch.h"
+#include "ReflectDamage.h"
 
 namespace Patch
 {
-    void ReflectDamagePatch::InstallPatch() {
+    void ReflectDamage::InstallPatch() {
         if(settings.reflectDamageLimitRemoval)
         {
             REL::Relocation<uintptr_t> patch{ REL::ID(42842) };

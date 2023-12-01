@@ -1,13 +1,13 @@
 #include "Patch.h"
 #include "dataHandler.h"
-#include "ReflectDamagePatch.h"
-#include "ScrollExpPatch.h"
+#include "ReflectDamage.h"
+#include "ScrollExp.h"
 
 namespace Patch
 {
     void InstallAllPatches()
     {
-        ReflectDamagePatch::InstallPatch();
-        ScrollExpPatch::InstallPatch();
+        ReflectDamage::InstallPatch();
+        ScrollExp::InstallPatch();
     }
 } // namespace Patch
