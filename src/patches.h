@@ -9,7 +9,6 @@ public:
 private:
 };
 
-/*DOING*/
 class reflectDamagePatch
 {
 public:

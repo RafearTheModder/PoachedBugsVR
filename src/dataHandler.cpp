@@ -13,7 +13,6 @@ void dataHandler::readSettings() {
 
 namespace settings
 {
-
-	bool reflectDamageLimitRemoval = false;
+	bool reflectDamageLimitRemoval = true;
 	bool scrollsGrantExperience = true;
 }

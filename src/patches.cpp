@@ -10,9 +10,8 @@ void scrollExpPatch::InstallPatch() {
 };
 
 void reflectDamagePatch::InstallPatch() {
-    // TODO: Revisit address and offset. Address maps, but offset seems to be wrong as evidenced by damage reflection still being capped.
     REL::Relocation<uintptr_t> patch{ REL::ID(42842) };
     SKSE::AllocTrampoline(1 << 4);
-    REL::safe_write(patch.address() + 0x544, REL::NOP8, 8);
+    REL::safe_write(patch.address() + 0x761, REL::NOP8, 8);
     logger::info("Reflect Damage patch installed!");
 };
