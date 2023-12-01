@@ -1,0 +1,14 @@
+{
+  "name": "poachedbugsvr",
+  "version-string": "0.0.1",
+  "description": "Assorted bugfixes and adjustments for Skyrim VR with an emphasis on porting patches the modding community has uncovered in SE/AE",
+  "homepage": "N/A",
+  "license": "MIT",
+  "dependencies": [
+    "boost-atomic",
+    "boost-stl-interfaces",
+    "rsm-binary-io",
+    "clib-util",
+    "spdlog"
+  ]
+}
