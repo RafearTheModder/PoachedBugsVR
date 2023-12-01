@@ -6,8 +6,7 @@ namespace Patch
         if(settings.stavesGrantExperience)
         {
             REL::Relocation<uintptr_t> enchantmentItemVtable{ RE::VTABLE_EnchantmentItem[0] }; // EnchantmentItem::VirtualFunctionTable, index 0x60 contains GetSkillUsageData
-            originalEnchantmentGetSkillData_ = reinterpret_cast<decltype(StaffExp::originalEnchantmentGetSkillData_)>(std::addressof(reinterpret_cast<std::uintptr_t*>(enchantmentItemVtable.address())[0x60]));
-            REL::safe_write(reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(enchantmentItemVtable.address())[0x60])), reinterpret_cast<std::uintptr_t>(StaffExp::EnchantmentGetSkillData));
+            StaffExp::originalEnchantmentGetSkillData_ = enchantmentItemVtable.write_vfunc(0x60, StaffExp::EnchantmentGetSkillData);
             logger::info("\"Staves grant experience\" patch installed!");
         }
         else
@@ -43,5 +42,5 @@ namespace Patch
         return RE::ActorValue::kOneHanded <= skillUsage.skill && skillUsage.skill < RE::ActorValue::kHealth;
     }
 
-    decltype(StaffExp::EnchantmentGetSkillData)* StaffExp::originalEnchantmentGetSkillData_{nullptr};
+    REL::Relocation<decltype(StaffExp::EnchantmentGetSkillData)> StaffExp::originalEnchantmentGetSkillData_{};
 } // namespace Patch

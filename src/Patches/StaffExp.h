@@ -13,6 +13,6 @@ namespace Patch
         static bool EnchantmentGetSkillData(RE::EnchantmentItem* enchant, RE::MagicItem::SkillUsageData& skillUsage);
         static bool StaffEnchantmentGetSkillData(RE::EnchantmentItem* enchant, RE::MagicItem::SkillUsageData& skillUsage);
 
-        static decltype(StaffExp::EnchantmentGetSkillData)* originalEnchantmentGetSkillData_;
+        static REL::Relocation<decltype(StaffExp::EnchantmentGetSkillData)> originalEnchantmentGetSkillData_;
     };
 } // namespace Patch
