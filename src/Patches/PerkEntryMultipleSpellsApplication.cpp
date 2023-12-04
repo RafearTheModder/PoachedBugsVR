@@ -39,7 +39,20 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::AppendSpell(RE::Actor* perkedActor, std::uint32_t resultTypeEnum, std::uint8_t resultCount, void** results, RE::BGSEntryPointFunctionData* entryPointFunctionData)
     {
+        auto expectedResultCount = *reinterpret_cast<std::uint32_t*>(REL::ID(502190).address());
+        if ((resultCount != expectedResultCount)||
+            (resultTypeEnum != 4)|| // 4 is spellItem return type, which is the only one we should act on in here.
+            (entryPointFunctionData->GetType() != RE::BGSEntryPointFunctionData::ENTRY_POINT_FUNCTION_DATA::kSpellItem))
+        {
+            return;
+        }
 
+        RE::SpellItem* spell = static_cast<RE::BGSEntryPointFunctionDataSpellItem*>(entryPointFunctionData)->spell;
+        if (spell)
+        {
+            auto* spells = static_cast<RE::BSTArray<RE::SpellItem*>*>(*results);
+            spells->push_back(spell);
+        }
     };
 
     // TODO: Refactor this out to a module for helper functions.
