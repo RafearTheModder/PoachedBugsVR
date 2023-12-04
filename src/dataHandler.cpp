@@ -13,4 +13,5 @@ void dataHandler::readSettings() {
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("General", "poisonsUseOtherResistances", true);
 	settings.stavesGrantExperience = ini.GetBoolValue("General", "stavesGrantExperience", true);
 	settings.staffExperienceIgnoresEnchantmentCost = ini.GetBoolValue("General", "staffExperienceIgnoresEnchantmentCost", true);
+	settings.perkEntryMultipleSpellsApplication = ini.GetBoolValue("General", "perkEntryMultipleSpellsApplication", true);
 }
