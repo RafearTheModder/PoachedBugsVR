@@ -85,11 +85,11 @@ namespace Patch
         }
     };
 
-    void PerkEntryMultipleSpellsApplication::ApplyAllCombatHitSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::SpellItem** spells)
+    void PerkEntryMultipleSpellsApplication::ApplyAllCombatHitSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::TESObjectWEAP* weapon, RE::Actor* target, RE::SpellItem** spells)
     {
         RE::BSTArray<RE::SpellItem*> spellArray;
 
-        originalApplyAllCombatHitSpells(entryPointEnum, perkedActor, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
+        originalApplyAllCombatHitSpells(entryPointEnum, perkedActor, weapon, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
         for (RE::SpellItem* spell : spellArray)
         {
@@ -97,11 +97,11 @@ namespace Patch
         }
     };
 
-    void PerkEntryMultipleSpellsApplication::ApplyAllCombatHitArrowProjectileSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::SpellItem** spells)
+    void PerkEntryMultipleSpellsApplication::ApplyAllCombatHitArrowProjectileSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::TESObjectWEAP* weapon, RE::Actor* target, RE::SpellItem** spells)
     {
         RE::BSTArray<RE::SpellItem*> spellArray;
 
-        originalApplyAllCombatHitArrowProjectileSpells(entryPointEnum, perkedActor, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
+        originalApplyAllCombatHitArrowProjectileSpells(entryPointEnum, perkedActor, weapon, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
         for (RE::SpellItem* spell : spellArray)
         {
@@ -109,11 +109,11 @@ namespace Patch
         }
     };
 
-    void PerkEntryMultipleSpellsApplication::ApplyAllReanimateSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::SpellItem** spells)
+    void PerkEntryMultipleSpellsApplication::ApplyAllReanimateSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::SpellItem* spell, RE::Actor* target, RE::SpellItem** spells)
     {
         RE::BSTArray<RE::SpellItem*> spellArray;
 
-        originalApplyAllReanimateSpells(entryPointEnum, perkedActor, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
+        originalApplyAllReanimateSpells(entryPointEnum, perkedActor, spell, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
         for (RE::SpellItem* spell : spellArray)
         {
@@ -121,23 +121,23 @@ namespace Patch
         }
     };
 
-    void PerkEntryMultipleSpellsApplication::ApplyAllSneakingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::SpellItem** spells)
+    void PerkEntryMultipleSpellsApplication::ApplyAllSneakingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::SpellItem** spells)
     {
         RE::BSTArray<RE::SpellItem*> spellArray;
 
-        originalApplyAllSneakingSpells(entryPointEnum, perkedActor, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
+        originalApplyAllSneakingSpells(entryPointEnum, perkedActor, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, target);
+            ApplySpellToTarget(spell, perkedActor, perkedActor);
         }
     };
 
-    void PerkEntryMultipleSpellsApplication::ApplyAllWeaponSwingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::SpellItem** spells)
+    void PerkEntryMultipleSpellsApplication::ApplyAllWeaponSwingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::TESObjectWEAP* weapon, RE::SpellItem** spells)
     {
         RE::BSTArray<RE::SpellItem*> spellArray;
 
-        originalApplyAllWeaponSwingSpells(entryPointEnum, perkedActor, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
+        originalApplyAllWeaponSwingSpells(entryPointEnum, perkedActor, target, weapon, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
         for (RE::SpellItem* spell : spellArray)
         {
