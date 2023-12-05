@@ -50,7 +50,7 @@ namespace Patch
         RE::SpellItem* spell = static_cast<RE::BGSEntryPointFunctionDataSpellItem*>(entryPointFunctionData)->spell;
         if (spell)
         {
-            auto* spells = static_cast<RE::BSTArray<RE::SpellItem*>*>(*results);
+            auto* spells = static_cast<std::vector<RE::SpellItem*>*>(*results);
             spells->push_back(spell);
         }
     };
@@ -75,7 +75,7 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::ApplyAllBashingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::SpellItem** spells)
     {
-        RE::BSTArray<RE::SpellItem*> spellArray;
+       std::vector<RE::SpellItem*> spellArray;
 
         originalApplyAllBashingSpells(entryPointEnum, perkedActor, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
@@ -87,7 +87,7 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::ApplyAllCombatHitSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::TESObjectWEAP* weapon, RE::Actor* target, RE::SpellItem** spells)
     {
-        RE::BSTArray<RE::SpellItem*> spellArray;
+       std::vector<RE::SpellItem*> spellArray;
 
         originalApplyAllCombatHitSpells(entryPointEnum, perkedActor, weapon, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
@@ -99,7 +99,7 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::ApplyAllCombatHitArrowProjectileSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::TESObjectWEAP* weapon, RE::Actor* target, RE::SpellItem** spells)
     {
-        RE::BSTArray<RE::SpellItem*> spellArray;
+       std::vector<RE::SpellItem*> spellArray;
 
         originalApplyAllCombatHitArrowProjectileSpells(entryPointEnum, perkedActor, weapon, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
@@ -111,7 +111,7 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::ApplyAllReanimateSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::SpellItem* spell, RE::Actor* target, RE::SpellItem** spells)
     {
-        RE::BSTArray<RE::SpellItem*> spellArray;
+       std::vector<RE::SpellItem*> spellArray;
 
         originalApplyAllReanimateSpells(entryPointEnum, perkedActor, spell, target, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
@@ -123,7 +123,7 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::ApplyAllSneakingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::SpellItem** spells)
     {
-        RE::BSTArray<RE::SpellItem*> spellArray;
+       std::vector<RE::SpellItem*> spellArray;
 
         originalApplyAllSneakingSpells(entryPointEnum, perkedActor, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
@@ -135,7 +135,7 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::ApplyAllWeaponSwingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::TESObjectWEAP* weapon, RE::SpellItem** spells)
     {
-        RE::BSTArray<RE::SpellItem*> spellArray;
+       std::vector<RE::SpellItem*> spellArray;
 
         originalApplyAllWeaponSwingSpells(entryPointEnum, perkedActor, target, weapon, reinterpret_cast<RE::SpellItem**>(std::addressof(spellArray)));
 
