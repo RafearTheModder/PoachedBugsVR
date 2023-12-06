@@ -134,6 +134,7 @@ set(SOURCES
 	src/Patches/ReflectDamage.cpp
 	src/Patches/PoisonResistance.cpp
 	src/Patches/PerkEntryMultipleSpellsApplication.cpp
+	src/Patches/PerkEntrySpellCasterCorrection.cpp
 	src/dataHandler.cpp
 	src/PCH.h
 	src/Patches/Patch.h
@@ -142,6 +143,7 @@ set(SOURCES
 	src/Patches/ReflectDamage.h
 	src/Patches/PoisonResistance.h
 	src/Patches/PerkEntryMultipleSpellsApplication.h
+	src/Patches/PerkEntrySpellCasterCorrection.h
 	src/dataHandler.h
 )
 

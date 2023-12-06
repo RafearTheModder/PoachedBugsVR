@@ -5,6 +5,7 @@
 #include "PoisonResistance.h"
 #include "StaffExp.h"
 #include "PerkEntryMultipleSpellsApplication.h"
+#include "PerkEntrySpellCasterCorrection.h"
 
 namespace Patch
 {
@@ -15,5 +16,6 @@ namespace Patch
         PoisonResistance::InstallPatch();
         StaffExp::InstallPatch();
         PerkEntryMultipleSpellsApplication::InstallPatch();
+        PerkEntrySpellCasterCorrection::InstallPatch();
     }
 } // namespace Patch
