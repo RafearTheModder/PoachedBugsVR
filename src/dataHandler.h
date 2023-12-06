@@ -15,6 +15,7 @@ struct settingsStorage
 	bool stavesGrantExperience=true;
 	bool staffExperienceIgnoresEnchantmentCost=true;
 	bool perkEntryMultipleSpellsApplication=true;
+	bool perkEntrySpellCasterFix=true;
 };
 
 extern settingsStorage settings;
