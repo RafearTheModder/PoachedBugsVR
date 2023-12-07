@@ -9,18 +9,23 @@ namespace Patch
             SKSE::Trampoline& trampoline = SKSE::GetTrampoline();
 
             // Bashing
+            SKSE::AllocTrampoline(1 << 4);
             trampoline.write_call<5>(REL::ID(37673).address() + 0x429, ApplySpell);
 
             // CombatHit
+            SKSE::AllocTrampoline(1 << 4);
             trampoline.write_call<5>(REL::ID(37799).address() + 0x79, ApplySpell);
 
             // ArrowHit
+            SKSE::AllocTrampoline(1 << 4);
             trampoline.write_call<5>(REL::ID(42547).address() + 0x2A7, ApplySpell);
 
             // Reanimate
+            SKSE::AllocTrampoline(1 << 4);
             trampoline.write_call<5>(REL::ID(37865).address() + 0xD2, ApplySpell);
 
             // WeaponSwing
+            SKSE::AllocTrampoline(1 << 4);
             trampoline.write_call<5>(REL::ID(37628).address() + 0xC3, ApplySpell);
 
             logger::info("\"PerkEntrySpellCasterCorrection\" patch installed!");
