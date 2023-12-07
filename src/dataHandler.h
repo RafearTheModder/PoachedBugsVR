@@ -14,6 +14,7 @@ struct settingsStorage
 	bool poisonsUseOtherResistances=true;
 	bool stavesGrantExperience=true;
 	bool staffExperienceIgnoresEnchantmentCost=true;
+	bool improveAllEnchantmentEffects=true;
 	bool perkEntryMultipleSpellsApplication=true;
 };
 
