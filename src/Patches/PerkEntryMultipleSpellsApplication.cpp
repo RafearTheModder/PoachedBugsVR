@@ -81,7 +81,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, target);
+            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -93,7 +93,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, target);
+            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -105,7 +105,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, target);
+            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -117,7 +117,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, target);
+            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -141,7 +141,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, target);
+            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 

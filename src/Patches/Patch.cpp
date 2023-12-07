@@ -6,6 +6,7 @@
 #include "StaffExp.h"
 #include "ImproveAllEnchantmentEffects.h"
 #include "PerkEntryMultipleSpellsApplication.h"
+#include "PerkEntrySpellCasterCorrection.h"
 
 namespace Patch
 {
@@ -17,5 +18,6 @@ namespace Patch
         StaffExp::InstallPatch();
         ImproveAllEnchantmentEffects::InstallPatch();
         PerkEntryMultipleSpellsApplication::InstallPatch();
+        PerkEntrySpellCasterCorrection::InstallPatch();
     }
 } // namespace Patch
