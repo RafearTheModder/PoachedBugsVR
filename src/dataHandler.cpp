@@ -8,12 +8,15 @@ void dataHandler::readSettings() {
 #define SETTINGFILE_PATH "Data\\SKSE\\Plugins\\PoachedBugsVR.ini"
 	ini.LoadFile(SETTINGFILE_PATH);
 
-	settings.reflectDamageLimitRemoval = ini.GetBoolValue("General", "reflectDamageLimitRemoval", true);
-	settings.scrollsGrantExperience = ini.GetBoolValue("General", "scrollsGrantExperience", true);
-	settings.poisonsUseOtherResistances = ini.GetBoolValue("General", "poisonsUseOtherResistances", true);
-	settings.stavesGrantExperience = ini.GetBoolValue("General", "stavesGrantExperience", true);
-	settings.staffExperienceIgnoresEnchantmentCost = ini.GetBoolValue("General", "staffExperienceIgnoresEnchantmentCost", true);
-	settings.improveAllEnchantmentEffects = ini.GetBoolValue("General", "improveAllEnchantmentEffects", true);
-	settings.perkEntryMultipleSpellsApplication = ini.GetBoolValue("General", "perkEntryMultipleSpellsApplication", true);
-	settings.perkEntrySpellCasterFix = ini.GetBoolValue("General", "perkEntrySpellCasterFix", true);
+	// (Relatively) safe fixes
+	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Fixes", "reflectDamageLimitRemoval", true);
+	settings.improveAllEnchantmentEffects = ini.GetBoolValue("Fixes", "improveAllEnchantmentEffects", true);
+	settings.perkEntrySpellCasterFix = ini.GetBoolValue("Fixes", "perkEntrySpellCasterFix", true);
+
+	// Tweaks with extra dependence/compatibility concerns
+	settings.poisonsUseOtherResistances = ini.GetBoolValue("Tweaks", "poisonsUseOtherResistances", false);
+	settings.scrollsGrantExperience = ini.GetBoolValue("Tweaks", "scrollsGrantExperience", false);
+	settings.stavesGrantExperience = ini.GetBoolValue("Tweaks", "stavesGrantExperience", false);
+	settings.staffExperienceIgnoresEnchantmentCost = ini.GetBoolValue("Tweaks", "staffExperienceIgnoresEnchantmentCost", false);
+	settings.perkEntryMultipleSpellsApplication = ini.GetBoolValue("Tweaks", "perkEntryMultipleSpellsApplication", false);
 }
