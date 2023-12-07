@@ -4,6 +4,7 @@
 #include "ScrollExp.h"
 #include "PoisonResistance.h"
 #include "StaffExp.h"
+#include "ImproveAllEnchantmentEffects.h"
 
 namespace Patch
 {
@@ -13,5 +14,6 @@ namespace Patch
         ScrollExp::InstallPatch();
         PoisonResistance::InstallPatch();
         StaffExp::InstallPatch();
+        ImproveAllEnchantmentEffects::InstallPatch();
     }
 } // namespace Patch

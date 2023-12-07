@@ -133,6 +133,7 @@ set(SOURCES
 	src/Patches/StaffExp.cpp
 	src/Patches/ReflectDamage.cpp
 	src/Patches/PoisonResistance.cpp
+	src/Patches/ImproveAllEnchantmentEffects.cpp
 	src/dataHandler.cpp
 	src/PCH.h
 	src/Patches/Patch.h
@@ -140,6 +141,7 @@ set(SOURCES
 	src/Patches/StaffExp.h
 	src/Patches/ReflectDamage.h
 	src/Patches/PoisonResistance.h
+	src/Patches/ImproveAllEnchantmentEffects.h
 	src/dataHandler.h
 )
 
