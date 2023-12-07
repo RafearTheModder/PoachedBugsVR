@@ -14,4 +14,5 @@ void dataHandler::readSettings() {
 	settings.stavesGrantExperience = ini.GetBoolValue("General", "stavesGrantExperience", true);
 	settings.staffExperienceIgnoresEnchantmentCost = ini.GetBoolValue("General", "staffExperienceIgnoresEnchantmentCost", true);
 	settings.improveAllEnchantmentEffects = ini.GetBoolValue("General", "improveAllEnchantmentEffects", true);
+	settings.perkEntryMultipleSpellsApplication = ini.GetBoolValue("General", "perkEntryMultipleSpellsApplication", true);
 }
