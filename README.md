@@ -24,9 +24,9 @@ Tweaks:
 	* Add the environment variable `VCPKG_ROOT` with the value as the path to the folder containing vcpkg
 * [Visual Studio Community 2022](https://visualstudio.microsoft.com/)
 	* Desktop development with C++
-* [CommonLibVR](https://github.com/alandtse/CommonLibVR/tree/vr)
-	* You need to build from the alandtse/vr branch
-	* Add this as as an environment variable `CommonLibVRPath` instead of /extern
+* [CommonLibVR](https://github.com/RafearTheModder/CommonLibVR/tree/vr)
+	* You need to build from the RafearTheModder/vr branch (will switch to alandtse/vr if and when changes are upstreamed)
+	* Add this as as an environment variable `CommonLibVRPath`
 
 ## User Requirements
 * [VR Address Library for SKSEVR](https://www.nexusmods.com/skyrimspecialedition/mods/58101)
