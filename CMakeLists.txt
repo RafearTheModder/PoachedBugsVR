@@ -147,6 +147,7 @@ set(SOURCES
 	src/Patches/PerkEntryMultipleSpellsApplication.h
 	src/Patches/PerkEntrySpellCasterCorrection.h
 	src/dataHandler.h
+	src/Addresses.h
 )
 
 source_group(
