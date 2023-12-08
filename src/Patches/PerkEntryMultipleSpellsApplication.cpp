@@ -1,33 +1,34 @@
 #include "PerkEntryMultipleSpellsApplication.h"
 #include "SKSE/Trampoline.h"
 
+#include "Addresses.h"
+
 namespace Patch
 {
     void PerkEntryMultipleSpellsApplication::InstallPatch() {
         if(settings.perkEntryMultipleSpellsApplication)
         {
-            std::uintptr_t SelectSpellFunctionPointer = REL::ID(675819).address();
-            *reinterpret_cast<decltype(&PerkEntryMultipleSpellsApplication::AppendSpell)*>(SelectSpellFunctionPointer) = std::addressof(PerkEntryMultipleSpellsApplication::AppendSpell);
+            *reinterpret_cast<decltype(&PerkEntryMultipleSpellsApplication::AppendSpell)*>(RE::Address::PerkEntry::SelectSpellFunctionPointer.address()) = std::addressof(PerkEntryMultipleSpellsApplication::AppendSpell);
 
             SKSE::Trampoline& trampoline = SKSE::GetTrampoline();
 
             SKSE::AllocTrampoline(1 << 4);
-            originalApplyAllBashingSpells = trampoline.write_call<5>(REL::ID(37673).address() + 0x40E, ApplyAllBashingSpells);
+            originalApplyAllBashingSpells = trampoline.write_call<5>(RE::Address::PerkEntry::HandlePerkEntry::SelectBashingSpell.address(), ApplyAllBashingSpells);
 
             SKSE::AllocTrampoline(1 << 4);
-            originalApplyAllCombatHitSpells = trampoline.write_call<5>(REL::ID(37799).address() + 0x61, ApplyAllCombatHitSpells);
+            originalApplyAllCombatHitSpells = trampoline.write_call<5>(RE::Address::PerkEntry::HandlePerkEntry::SelectCombatHitSpell.address(), ApplyAllCombatHitSpells);
 
             SKSE::AllocTrampoline(1 << 4);
-            originalApplyAllCombatHitArrowProjectileSpells = trampoline.write_call<5>(REL::ID(42547).address() + 0x28B, ApplyAllCombatHitArrowProjectileSpells);
+            originalApplyAllCombatHitArrowProjectileSpells = trampoline.write_call<5>(RE::Address::PerkEntry::HandlePerkEntry::SelectCombatHitArrowProjectileSpell.address(), ApplyAllCombatHitArrowProjectileSpells);
 
             SKSE::AllocTrampoline(1 << 4);
-            originalApplyAllReanimateSpells = trampoline.write_call<5>(REL::ID(37865).address() + 0xBA, ApplyAllReanimateSpells);
+            originalApplyAllReanimateSpells = trampoline.write_call<5>(RE::Address::PerkEntry::HandlePerkEntry::SelectReanimateSpell.address(), ApplyAllReanimateSpells);
 
             SKSE::AllocTrampoline(1 << 4);
-            originalApplyAllSneakingSpells = trampoline.write_call<5>(REL::ID(36926).address() + 0xB6, ApplyAllSneakingSpells);
+            originalApplyAllSneakingSpells = trampoline.write_call<5>(RE::Address::PerkEntry::HandlePerkEntry::SelectSneakingSpell.address(), ApplyAllSneakingSpells);
 
             SKSE::AllocTrampoline(1 << 4);
-            originalApplyAllWeaponSwingSpells = trampoline.write_call<5>(REL::ID(37628).address() + 0xAB, ApplyAllWeaponSwingSpells);
+            originalApplyAllWeaponSwingSpells = trampoline.write_call<5>(RE::Address::PerkEntry::HandlePerkEntry::SelectWeaponSwingSpell.address(), ApplyAllWeaponSwingSpells);
 
             logger::info("\"PerkEntryMultipleSpellsApplication\" patch installed!");
         }
@@ -39,7 +40,7 @@ namespace Patch
 
     void PerkEntryMultipleSpellsApplication::AppendSpell(RE::Actor* perkedActor, std::uint32_t resultTypeEnum, std::uint8_t resultCount, void** results, RE::BGSEntryPointFunctionData* entryPointFunctionData)
     {
-        auto expectedResultCount = *reinterpret_cast<std::uint32_t*>(REL::ID(502190).address());
+        auto expectedResultCount = *reinterpret_cast<std::uint32_t*>(RE::Address::PerkEntry::SelectSpellFunctionResultCount.address());
         if ((resultCount != expectedResultCount)||
             (resultTypeEnum != 4)|| // 4 is spellItem return type, which is the only one we should act on in here.
             (entryPointFunctionData->GetType() != RE::BGSEntryPointFunctionData::ENTRY_POINT_FUNCTION_DATA::kSpellItem))

@@ -1,6 +1,8 @@
 #include "PerkEntrySpellCasterCorrection.h"
 #include "SKSE/Trampoline.h"
 
+#include "Addresses.h"
+
 namespace Patch
 {
     void PerkEntrySpellCasterCorrection::InstallPatch() {
@@ -10,23 +12,23 @@ namespace Patch
 
             // Bashing
             SKSE::AllocTrampoline(1 << 4);
-            trampoline.write_call<5>(REL::ID(37673).address() + 0x429, ApplySpell);
+            trampoline.write_call<5>(RE::Address::PerkEntry::ApplySpell::ApplyBashingSpell.address(), ApplySpell);
 
             // CombatHit
             SKSE::AllocTrampoline(1 << 4);
-            trampoline.write_call<5>(REL::ID(37799).address() + 0x79, ApplySpell);
+            trampoline.write_call<5>(RE::Address::PerkEntry::ApplySpell::ApplyCombatHitSpell.address(), ApplySpell);
 
             // ArrowHit
             SKSE::AllocTrampoline(1 << 4);
-            trampoline.write_call<5>(REL::ID(42547).address() + 0x2A7, ApplySpell);
+            trampoline.write_call<5>(RE::Address::PerkEntry::ApplySpell::ApplyCombatHitArrowProjectileSpell.address(), ApplySpell);
 
             // Reanimate
             SKSE::AllocTrampoline(1 << 4);
-            trampoline.write_call<5>(REL::ID(37865).address() + 0xD2, ApplySpell);
+            trampoline.write_call<5>(RE::Address::PerkEntry::ApplySpell::ApplyReanimateSpell.address(), ApplySpell);
 
             // WeaponSwing
             SKSE::AllocTrampoline(1 << 4);
-            trampoline.write_call<5>(REL::ID(37628).address() + 0xC3, ApplySpell);
+            trampoline.write_call<5>(RE::Address::PerkEntry::ApplySpell::ApplyWeaponSwingSpell.address(), ApplySpell);
 
             logger::info("\"PerkEntrySpellCasterCorrection\" patch installed!");
         }
