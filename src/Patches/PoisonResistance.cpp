@@ -5,15 +5,15 @@ namespace Patch
     void PoisonResistance::InstallPatch() {
         if(settings.poisonsUseOtherResistances)
         {
-            REL::Relocation<uintptr_t> actorMagicTargetVtableAddress{ REL::ID(260542) };
-            auto actorCheckResistanceFuncPtr = reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(actorMagicTargetVtableAddress.address())[0xA]));
+            auto actorCheckResistanceFuncPtr = reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(RE::VTABLE_Actor[4].address())[0xA]));
             REL::safe_write(actorCheckResistanceFuncPtr, reinterpret_cast<std::uintptr_t>(std::addressof(PoisonResistance::CheckResistance)));
-            REL::Relocation<uintptr_t> characterMagicTargetVtableAddress{ REL::ID(261401) };
-            auto characterCheckResistanceFuncPtr = reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(characterMagicTargetVtableAddress.address())[0xA]));
+
+            auto characterCheckResistanceFuncPtr = reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(RE::VTABLE_Character[4].address())[0xA]));
             REL::safe_write(characterCheckResistanceFuncPtr, reinterpret_cast<std::uintptr_t>(std::addressof(PoisonResistance::CheckResistance)));
-            REL::Relocation<uintptr_t> playerMagicTargetVtableAddress{ REL::ID(261401) };
-            auto playerCheckResistanceFuncPtr = reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(playerMagicTargetVtableAddress.address())[0xA]));
+
+            auto playerCheckResistanceFuncPtr = reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(RE::VTABLE_PlayerCharacter[4].address())[0xA]));
             REL::safe_write(playerCheckResistanceFuncPtr, reinterpret_cast<std::uintptr_t>(std::addressof(PoisonResistance::CheckResistance)));
+
             logger::info("\"Poisons use other resistances\" patch installed!");
         }
         else

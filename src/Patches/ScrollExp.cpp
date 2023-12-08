@@ -6,9 +6,8 @@ namespace Patch
         if(settings.scrollsGrantExperience)
         {
             // Replace ScrollItem::GetSkillUsageData with SpellItem::GetSkillUsageData
-            REL::Relocation<uintptr_t> scrollPatch{ REL::ID(228867) }; // ScrollItem::VirtualFunctionTable, index 60 contains GetSkillUsageData
-            REL::Relocation<uintptr_t> spellItemPatch{ REL::ID(228888) }; // SpellItem::VirtualFunctionTable, index 60 contains GetSkillUsageData
-            REL::safe_write(reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(scrollPatch.address())[0x60])), reinterpret_cast<std::uintptr_t*>(spellItemPatch.address())[0x60]);
+            REL::safe_write(reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(RE::VTABLE_ScrollItem[0].address())[0x60])),
+                            reinterpret_cast<std::uintptr_t*>(RE::VTABLE_SpellItem[0].address())[0x60]);
             logger::info("\"Scrolls grant experience\" patch installed!");
         }
         else
