@@ -7,11 +7,11 @@ namespace Patch
         {
             REL::Relocation<uintptr_t> enchantmentItemVtable{ RE::VTABLE_CraftingSubMenus__EnchantConstructMenu__CreateEffectFunctor[0] }; // index 1 of this vtable has the functor we are looking for
             originalAddEffect_ = enchantmentItemVtable.write_vfunc(0x1, ImproveAllEnchantmentEffects::AddEffect);
-            logger::info("\"Improve multiple enchantment effects\" patch installed!");
+            logger::info("\"ImproveAllEnchantmentEffects\" patch installed!");
         }
         else
         {
-            logger::info("\"Improve multiple enchantment effects\" patch is NOT enabled... skipping.");
+            logger::info("\"ImproveAllEnchantmentEffects\" patch is NOT enabled... skipping.");
         }
     };
     

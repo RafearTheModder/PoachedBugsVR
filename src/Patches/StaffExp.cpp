@@ -11,10 +11,19 @@ namespace Patch
             StaffExp::spellItemGetSkillData_ = reinterpret_cast<decltype(StaffExp::spellItemGetSkillData_)>(reinterpret_cast<std::uintptr_t*>(spellItemVtable.address())[0x60]);
             // REL::safe_write(reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(enchantmentItemVtable.address())[0x60])), reinterpret_cast<std::uintptr_t>(StaffExp::EnchantmentGetSkillData));
             logger::info("\"Staves grant experience\" patch installed!");
+            if (settings.staffExperienceIgnoresEnchantmentCost)
+            {
+                logger::info("\"Staff experience ignores enchantment cost\" patch installed!");
+            }
+            else
+            {
+                logger::info("\"Staff experience ignores enchantment cost\" patch is NOT enabled... skipping.");
+            }
         }
         else
         {
             logger::info("\"Staves grant experience\" patch is NOT enabled... skipping.");
+            logger::info("\"Staff experience ignores enchantment cost\" patch is NOT enabled... skipping.");
         }
     };
 

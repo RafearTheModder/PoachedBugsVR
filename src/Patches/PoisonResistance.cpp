@@ -14,11 +14,11 @@ namespace Patch
             REL::Relocation<uintptr_t> playerMagicTargetVtableAddress{ REL::ID(261401) };
             auto playerCheckResistanceFuncPtr = reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(playerMagicTargetVtableAddress.address())[0xA]));
             REL::safe_write(playerCheckResistanceFuncPtr, reinterpret_cast<std::uintptr_t>(std::addressof(PoisonResistance::CheckResistance)));
-            logger::info("\"Poison resistance\" patch installed!");
+            logger::info("\"Poisons use other resistances\" patch installed!");
         }
         else
         {
-            logger::info("\"Poison resistance\" patch is NOT enabled... skipping.");
+            logger::info("\"Poisons use other resistances\" patch is NOT enabled... skipping.");
         }
     };
     
