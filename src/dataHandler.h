@@ -17,6 +17,7 @@ struct settingsStorage
 	bool improveAllEnchantmentEffects=true;
 	bool perkEntryMultipleSpellsApplication=true;
 	bool perkEntrySpellCasterFix=true;
+	bool powerAttacksStaminaRequirement=true;
 };
 
 extern settingsStorage settings;

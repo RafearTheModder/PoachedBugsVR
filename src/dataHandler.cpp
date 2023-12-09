@@ -12,6 +12,7 @@ void dataHandler::readSettings() {
 	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Fixes", "reflectDamageLimitRemoval", true);
 	settings.improveAllEnchantmentEffects = ini.GetBoolValue("Fixes", "improveAllEnchantmentEffects", true);
 	settings.perkEntrySpellCasterFix = ini.GetBoolValue("Fixes", "perkEntrySpellCasterFix", true);
+	settings.powerAttacksStaminaRequirement = ini.GetBoolValue("Fixes", "powerAttacksStaminaRequirement", true);
 
 	// Tweaks with extra dependence/compatibility concerns
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("Tweaks", "poisonsUseOtherResistances", false);
