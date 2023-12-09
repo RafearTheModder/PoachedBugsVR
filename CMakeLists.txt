@@ -136,6 +136,7 @@ set(SOURCES
 	src/Patches/ImproveAllEnchantmentEffects.cpp
 	src/Patches/PerkEntryMultipleSpellsApplication.cpp
 	src/Patches/PerkEntrySpellCasterCorrection.cpp
+	src/Patches/QuickShotPerkFix.cpp
 	src/dataHandler.cpp
 	src/PCH.h
 	src/Patches/Patch.h
@@ -146,6 +147,7 @@ set(SOURCES
 	src/Patches/ImproveAllEnchantmentEffects.h
 	src/Patches/PerkEntryMultipleSpellsApplication.h
 	src/Patches/PerkEntrySpellCasterCorrection.h
+	src/Patches/QuickShotPerkFix.h
 	src/dataHandler.h
 	src/Addresses.h
 )

@@ -12,6 +12,8 @@ void dataHandler::readSettings() {
 	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Fixes", "reflectDamageLimitRemoval", true);
 	settings.improveAllEnchantmentEffects = ini.GetBoolValue("Fixes", "improveAllEnchantmentEffects", true);
 	settings.perkEntrySpellCasterFix = ini.GetBoolValue("Fixes", "perkEntrySpellCasterFix", true);
+	settings.quickDrawPerkDamageFix = ini.GetBoolValue("Fixes", "quickDrawPerkDamageFix", true);
+	settings.quickDrawPerkSpeedMult = ini.GetDoubleValue("Fixes", "quickDrawPerkSpeedMult", 2.0);
 
 	// Tweaks with extra dependence/compatibility concerns
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("Tweaks", "poisonsUseOtherResistances", false);

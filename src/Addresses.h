@@ -35,5 +35,10 @@ namespace RE
                 inline const REL::Relocation<std::uintptr_t> ApplyWeaponSwingSpell{REL::ID(37628).address() + 0xC3};
             }
         }
+
+        namespace QuickShot
+        {
+            inline const REL::Relocation<REL::ID> GetBowPower{REL::ID(25868)};
+        }
 	}
 }

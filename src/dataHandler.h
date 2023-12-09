@@ -17,6 +17,8 @@ struct settingsStorage
 	bool improveAllEnchantmentEffects=true;
 	bool perkEntryMultipleSpellsApplication=true;
 	bool perkEntrySpellCasterFix=true;
+	bool quickDrawPerkDamageFix=true;
+	double quickDrawPerkSpeedMult=2.0;
 };
 
 extern settingsStorage settings;
