@@ -9,7 +9,6 @@ namespace Patch
             StaffExp::originalEnchantmentGetSkillData_ = enchantmentItemVtable.write_vfunc(0x60, StaffExp::EnchantmentGetSkillData);
             REL::Relocation<uintptr_t> spellItemVtable{ RE::VTABLE_SpellItem[0] }; // SpellItem::VirtualFunctionTable, index 0x60 contains GetSkillUsageData
             StaffExp::spellItemGetSkillData_ = reinterpret_cast<decltype(StaffExp::spellItemGetSkillData_)>(reinterpret_cast<std::uintptr_t*>(spellItemVtable.address())[0x60]);
-            // REL::safe_write(reinterpret_cast<std::uintptr_t>(std::addressof(reinterpret_cast<std::uintptr_t*>(enchantmentItemVtable.address())[0x60])), reinterpret_cast<std::uintptr_t>(StaffExp::EnchantmentGetSkillData));
             logger::info("\"Staves grant experience\" patch installed!");
             if (settings.staffExperienceIgnoresEnchantmentCost)
             {
