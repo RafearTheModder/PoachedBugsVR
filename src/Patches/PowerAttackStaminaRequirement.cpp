@@ -6,24 +6,34 @@
 namespace Patch
 {
     void PowerAttackStaminaRequirement::InstallPatch() {
-        if(settings.powerAttacksStaminaRequirement)
+        SKSE::Trampoline& trampoline = SKSE::GetTrampoline();
+
+        if(settings.powerAttacksStaminaRequirementNPC)
         {
             REL::safe_write(RE::Address::PowerAttackStaminaChecks::ActorHasStamina.address(), REL::NOP2, 2);
-            REL::safe_write(RE::Address::PowerAttackStaminaChecks::PlayerHasStamina.address(), REL::NOP2, 2);
-
-            SKSE::Trampoline& trampoline = SKSE::GetTrampoline();
 
             SKSE::AllocTrampoline(1 << 4);
             originalActorHasStamina_ = trampoline.write_call<5>(RE::Address::PowerAttackStaminaChecks::GetActorAttackStamina.address(), ActorHasStamina);
+
+            logger::info("\"PowerAttackStaminaRequirementNPC\" patch installed!");
+        }
+        else
+        {
+            logger::info("\"PowerAttackStaminaRequirementNPC\" patch is NOT enabled... skipping.");
+        }
+    
+        if(settings.powerAttacksStaminaRequirementPlayer)
+        {
+            REL::safe_write(RE::Address::PowerAttackStaminaChecks::PlayerHasStamina.address(), REL::NOP2, 2);
             
             SKSE::AllocTrampoline(1 << 4);
             originalPlayerHasStamina_ = trampoline.write_call<5>(RE::Address::PowerAttackStaminaChecks::GetPlayerAttackStamina.address(), PlayerHasStamina);
 
-            logger::info("\"PowerAttackStaminaRequirement\" patch installed!");
+            logger::info("\"PowerAttackStaminaRequirementPlayer\" patch installed!");
         }
         else
         {
-            logger::info("\"PowerAttackStaminaRequirement\" patch is NOT enabled... skipping.");
+            logger::info("\"PowerAttackStaminaRequirementPlayer\" patch is NOT enabled... skipping.");
         }
     };
     
