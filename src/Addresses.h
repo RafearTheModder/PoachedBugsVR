@@ -35,5 +35,15 @@ namespace RE
                 inline const REL::Relocation<std::uintptr_t> ApplyWeaponSwingSpell{REL::ID(37628).address() + 0xC3};
             }
         }
+
+        namespace PowerAttackStaminaChecks
+        {
+            inline const REL::Relocation<std::uintptr_t> GetActorAttackStamina{REL::ID(48139).address() + 0x29B};
+            inline const REL::Relocation<std::uintptr_t> ActorHasStamina{REL::ID(48139).address() + 0x293};
+
+            inline const REL::Relocation<std::uintptr_t> GetPlayerAttackStamina{REL::ID(38047).address() + 0xBB};
+            inline const REL::Relocation<std::uintptr_t> PlayerHasStamina{REL::ID(38047).address() + 0xE1};
+        }
+        
 	}
 }

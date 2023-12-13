@@ -12,6 +12,9 @@ void dataHandler::readSettings() {
 	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Fixes", "reflectDamageLimitRemoval", true);
 	settings.improveAllEnchantmentEffects = ini.GetBoolValue("Fixes", "improveAllEnchantmentEffects", true);
 	settings.perkEntrySpellCasterFix = ini.GetBoolValue("Fixes", "perkEntrySpellCasterFix", true);
+	settings.powerAttacksStaminaRequirementNPC = ini.GetBoolValue("Fixes", "powerAttacksStaminaRequirementNPC", true);
+	// The player side of the power attack stamina patch may conflict with Planck, and will definitely be useless with it redoing the power attack code.
+	settings.powerAttacksStaminaRequirementPlayer = ini.GetBoolValue("Fixes", "powerAttacksStaminaRequirementPlayer", false);
 
 	// Tweaks with extra dependence/compatibility concerns
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("Tweaks", "poisonsUseOtherResistances", false);

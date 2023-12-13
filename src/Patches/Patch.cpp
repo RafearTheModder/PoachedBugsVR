@@ -7,6 +7,7 @@
 #include "ImproveAllEnchantmentEffects.h"
 #include "PerkEntryMultipleSpellsApplication.h"
 #include "PerkEntrySpellCasterCorrection.h"
+#include "PowerAttackStaminaRequirement.h"
 
 namespace Patch
 {
@@ -19,5 +20,6 @@ namespace Patch
         ImproveAllEnchantmentEffects::InstallPatch();
         PerkEntryMultipleSpellsApplication::InstallPatch();
         PerkEntrySpellCasterCorrection::InstallPatch();
+        PowerAttackStaminaRequirement::InstallPatch();
     }
 } // namespace Patch
