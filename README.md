@@ -8,6 +8,8 @@ Fixes:
 * reflectDamageLimitRemoval - Removes the 100% cap on the reflect damage actor value
 * improveAllEnchantmentEffects - Causes all effects in an enchantment to benefit from the players enchanting skill and perks, rather than only the costliest one
 * perkEntrySpellCasterFix - Makes it so that the perk owner is recognized as the one who cast the spell on the target, rather than the target casting on themself
+* powerAttacksStaminaRequirementNPC - Prevent NPCs from power attacking unless they have enough stamina for the full cost of the power attack. Makes frost magic and stamina draining poisons/spells more useful
+* powerAttacksStaminaRequirementPlayer - (DOES NOT ACTUALLY WORK CURRENTLY. Will likely need to be implemented within Planck instead. Disabled here by default). Prevent the player from power attacking unless they have enough stamina for the full cost of the power attack
 
 Tweaks:
 * poisonsUseOtherResistances - Poisons effects are resisted by their respective resist actor values, instead of always being resisted by poison resistance
