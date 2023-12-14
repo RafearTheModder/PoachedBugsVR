@@ -19,6 +19,7 @@ struct settingsStorage
 	bool perkEntrySpellCasterFix=true;
 	bool powerAttacksStaminaRequirementNPC=true;
 	bool powerAttacksStaminaRequirementPlayer=false;
+	bool accumulateMagnitudeScaling=false;
 };
 
 extern settingsStorage settings;
