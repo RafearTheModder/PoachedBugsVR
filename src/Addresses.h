@@ -45,5 +45,12 @@ namespace RE
             inline const REL::Relocation<std::uintptr_t> PlayerHasStamina{REL::ID(38047).address() + 0xE1};
         }
         
+        namespace ActiveEffectFactory
+        {
+            // Replace with the REL::ID line below when ID 516691 is added to the library
+            inline const REL::Relocation<REL::Offset> InstantiateFunctions{REL::Offset(0x2fea800)};
+            // inline const REL::Relocation<REL::ID> InstantiateFunctions{REL::ID(516691)};
+        }
+        
 	}
 }
