@@ -8,6 +8,7 @@
 #include "PerkEntryMultipleSpellsApplication.h"
 #include "PerkEntrySpellCasterCorrection.h"
 #include "PowerAttackStaminaRequirement.h"
+#include "AccumulateMagnitudeScaling.h"
 
 namespace Patch
 {
@@ -21,5 +22,6 @@ namespace Patch
         PerkEntryMultipleSpellsApplication::InstallPatch();
         PerkEntrySpellCasterCorrection::InstallPatch();
         PowerAttackStaminaRequirement::InstallPatch();
+        AccumulateMagnitudeScaling::InstallPatch();
     }
 } // namespace Patch

@@ -31,13 +31,36 @@ namespace Patch
 
     float AccumulateMagnitudeScaling::FindMaximumPower(RE::MagicTarget* magicTarget, RE::ActiveEffect* activeEffect)
     {
+		RE::FindMaxMagnitudeVisitor findMaxMagnitudeVisitor;
 
+		findMaxMagnitudeVisitor.activeEffect = activeEffect;
+		findMaxMagnitudeVisitor.maxMagnitude     = -1.0F;
+
+		magicTarget->ForEachActiveEffect(findMaxMagnitudeVisitor);
+
+		return findMaxMagnitudeVisitor.maxMagnitude;
     };
 
-    // RE::BSContainer::ForEachResult AccumulateMagnitudeScaling::FunctionCallOperator(RE::FindMaxMagnitudeVisitor* findMaxMagnitudeVisitor, RE::ActiveEffect* activeEffect);
-    RE::BSContainer::ForEachResult AccumulateMagnitudeScaling::FunctionCallOperator(void* findMaxMagnitudeVisitor, RE::ActiveEffect* activeEffect) // Replace with above line when RE is done on FindMaxMagnitudeVisitor
+    RE::BSContainer::ForEachResult AccumulateMagnitudeScaling::FunctionCallOperator(RE::FindMaxMagnitudeVisitor* findMaxMagnitudeVisitor, RE::ActiveEffect* activeEffect)
     {
-        return RE::BSContainer::ForEachResult::kStop;
+
+		auto* accumulatingValueModifierEffect = static_cast<RE::AccumulatingValueModifierEffect*>(activeEffect);
+		if ((!activeEffect) ||
+            (activeEffect == findMaxMagnitudeVisitor->activeEffect) ||
+            (activeEffect->GetBaseObject()->GetArchetype() != RE::EffectArchetypes::ArchetypeID::kAccumulateMagnitude)||
+            (accumulatingValueModifierEffect->actorValue != RE::ActorValue::kWardPower))
+		{
+			return RE::BSContainer::ForEachResult::kContinue;
+		}
+
+		auto accumulationRate = accumulatingValueModifierEffect->GetMagnitude();
+
+		if (accumulationRate > findMaxMagnitudeVisitor->maxMagnitude)
+		{
+			findMaxMagnitudeVisitor->maxMagnitude = accumulationRate;
+		}
+
+		return RE::BSContainer::ForEachResult::kContinue;
     };
 
     RE::AccumulatingValueModifierEffect* AccumulateMagnitudeScaling::InstantiateFunction(RE::Actor* caster, RE::MagicItem* magicItem, RE::Effect* effect)
@@ -51,7 +74,43 @@ namespace Patch
 
     void AccumulateMagnitudeScaling::UpdateActorValue(RE::AccumulatingValueModifierEffect* accumulatingValueModifierEffect, float frameTime)
     {
+        if (accumulatingValueModifierEffect->holdTimer <= 0.0)
+        {
+            auto* targetActor = accumulatingValueModifierEffect->GetTargetActor();
 
+            if (targetActor)
+            {
+                // Swap accumulation rate and the maximum magnitude
+                auto maxMagnitude = accumulatingValueModifierEffect->GetMagnitude();
+                auto accumulationRate = accumulatingValueModifierEffect->maximumMagnitude * frameTime;
+
+                if (accumulatingValueModifierEffect->actorValue == RE::ActorValue::kWardPower)
+                {
+                    /* Update maximum ward power */
+                    auto maxWardPower = AccumulateMagnitudeScaling::FindMaximumPower(targetActor, nullptr);
+                    targetActor->currentProcess->middleHigh->maximumWardPower = maxWardPower;
+
+                    if (maxWardPower > 0.0F)
+                    {
+                        maxMagnitude = maxWardPower;
+                    }
+                }
+
+                auto currentMagnitude = targetActor->GetActorValue(accumulatingValueModifierEffect->actorValue);
+
+                if (currentMagnitude + accumulationRate > maxMagnitude)
+                {
+                    accumulationRate = maxMagnitude - currentMagnitude;
+                }
+
+                accumulatingValueModifierEffect->ModifyActorValue(targetActor, accumulationRate, RE::ActorValue::kNone);
+                accumulatingValueModifierEffect->accumulatedMagnitude += accumulationRate;
+            }
+        }
+		else
+		{
+			accumulatingValueModifierEffect->holdTimer -= frameTime;
+		}
     };
 
     REL::Relocation<decltype(AccumulateMagnitudeScaling::InstantiateFunction)> AccumulateMagnitudeScaling::originalInstantiateFunction_{};
