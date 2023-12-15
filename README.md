@@ -17,6 +17,7 @@ Tweaks:
 * stavesGrantExperience - Staves will also grant experience similar to casting the spell they hold. Requires a mod to adjust scrolls to account for this (such as Mysticism)
 * staffExperienceIgnoresEnchantmentCost - Stave experience gain is not effected by its enchantment cost. Recommended for use with Mysticism/Simonrim. Does nothing unless also using stavesGrantExperience
 * perkEntryMultipleSpellsApplication - Allows multiple perk entry points to all simultaneously apply spells to their relevant targets, rather than only one being allowed. Will cause issues for mods that attempt to work around this limitation on their own.
+* accumulateMagnitudeScaling - Makes accumulate magnitude type effects (such as wards) increase in maximum magnitude instead of accumulation rate when having their effectiveness increased by things such as dual casting or perk entry points
 
 ## Requirements
 * [CMake](https://cmake.org/)
