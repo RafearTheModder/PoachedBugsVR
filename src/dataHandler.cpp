@@ -9,7 +9,6 @@ void dataHandler::readSettings() {
 	ini.LoadFile(SETTINGFILE_PATH);
 
 	// (Relatively) safe fixes
-	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Fixes", "reflectDamageLimitRemoval", true);
 	settings.improveAllEnchantmentEffects = ini.GetBoolValue("Fixes", "improveAllEnchantmentEffects", true);
 	settings.perkEntrySpellCasterFix = ini.GetBoolValue("Fixes", "perkEntrySpellCasterFix", true);
 	settings.powerAttacksStaminaRequirementNPC = ini.GetBoolValue("Fixes", "powerAttacksStaminaRequirementNPC", true);
@@ -23,4 +22,5 @@ void dataHandler::readSettings() {
 	settings.staffExperienceIgnoresEnchantmentCost = ini.GetBoolValue("Tweaks", "staffExperienceIgnoresEnchantmentCost", false);
 	settings.perkEntryMultipleSpellsApplication = ini.GetBoolValue("Tweaks", "perkEntryMultipleSpellsApplication", false);
 	settings.accumulateMagnitudeScaling = ini.GetBoolValue("Tweaks", "accumulateMagnitudeScaling", false);
+	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Tweaks", "reflectDamageLimitRemoval", true);
 }
