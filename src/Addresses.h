@@ -49,5 +49,11 @@ namespace RE
         {
             inline const REL::Relocation<REL::ID> InstantiateFunctions{REL::ID(516691)};
         }
+
+        namespace MagicEffect
+        {
+            inline const REL::Relocation<REL::ID> Adjust{REL::ID(33277)};
+            inline const REL::Relocation<REL::ID> Restart{REL::ID(33283)};
+        } // namespace MagicEffect
 	}
 }
