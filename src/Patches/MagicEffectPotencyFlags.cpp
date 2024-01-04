@@ -70,6 +70,35 @@ namespace Patch
     };
     
     void MagicEffectPotencyFlags::Restart(RE::ActiveEffect* activeEffect){
+        activeEffect->elapsedSeconds = 0.0;
 
+        RE::EffectSetting* baseEffect = activeEffect->GetBaseObject();
+        RE::Actor* caster = activeEffect->caster.get().get();
+        if (!baseEffect || !caster)
+        {
+            return;
+        }
+
+        bool wasDualCast = ((activeEffect->flags & RE::ActiveEffect::Flag::kDual) == RE::ActiveEffect::Flag::kDual);
+        bool isDualCasting = caster->GetHighProcess() ? caster->GetHighProcess()->isDualCasting : false;
+
+        if (isDualCasting != wasDualCast)
+        {
+            activeEffect->flags ^= RE::ActiveEffect::Flag::kDual; // Use xor to simply flip the flag
+            RE::MagicItem* spell = activeEffect->spell;
+            float cost = spell->CalculateMagickaCost(caster);
+
+            /*TODO: Implement some means of properly getting the dualcasted effectiveness for this situation...
+                    Looks like CommonLibVR lacks this... might be a sneaky address in need of reversing to complete this.
+                    Labels: Type:Feature, Priority:1, Status:Backlog*/
+            float effectiveness = 1.0F;
+            if(wasDualCast)
+            {
+                //If the spell *was* dual cast but we are hitting this, it no longer *is* dual cast. So we need to invert the effectiveness mod that entails
+                effectiveness = 1.0/effectiveness;
+            }
+
+            MagicEffectPotencyFlags::Adjust(activeEffect, effectiveness, false);
+        }
     };
 } // namespace Patch
