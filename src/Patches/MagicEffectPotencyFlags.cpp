@@ -68,7 +68,7 @@ namespace Patch
             activeEffect->magnitude = (prevMagnitude >= 0.0) ? (std::max)(changedMagnitude, 1.0F) : (std::min)(changedMagnitude, -1.0F);
         }
     };
-    
+
     void MagicEffectPotencyFlags::Restart(RE::ActiveEffect* activeEffect){
         activeEffect->elapsedSeconds = 0.0;
 
@@ -88,10 +88,7 @@ namespace Patch
             RE::MagicItem* spell = activeEffect->spell;
             float cost = spell->CalculateMagickaCost(caster);
 
-            /*TODO: Implement some means of properly getting the dualcasted effectiveness for this situation...
-                    Looks like CommonLibVR lacks this... might be a sneaky address in need of reversing to complete this.
-                    Labels: Type:Feature, Priority:1, Status:Backlog*/
-            float effectiveness = 1.0F;
+            float effectiveness = caster->GetDualCastingEffectiveness(cost);
             if(wasDualCast)
             {
                 //If the spell *was* dual cast but we are hitting this, it no longer *is* dual cast. So we need to invert the effectiveness mod that entails
