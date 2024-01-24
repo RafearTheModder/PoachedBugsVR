@@ -10,7 +10,25 @@ namespace Patch
     void MagicEffectPotencyFlags::InstallPatch() {
         if(settings.magicEffectPotencyFlags)
         {
-            // Need to write absolute jumps to Adjust and Restart as overrides to the base/vanilla functions here. 
+            /*TODO: Clean this up with helper functions (or switch to xbyak after I learn how to properly use it?)
+                    This structure base approach is very messy, but should function well enough
+                    labels: Type:Refactoring, Status:Backlog, Priority:3*/
+			struct AbsoluteJumpAssembly
+			{
+				// jmp [addr]
+				std::uint8_t  jmp = 0xFF;
+				std::uint8_t  modrm = 0x25;
+				std::int32_t  disp = 0x0;
+				std::uint64_t addr;
+
+                AbsoluteJumpAssembly(std::uintptr_t dst_addr){
+                    addr = dst_addr;
+                }
+			};
+            auto adjustJmp = AbsoluteJumpAssembly(reinterpret_cast<std::uintptr_t>(std::addressof(MagicEffectPotencyFlags::Adjust)));
+            REL::safe_write(RE::Address::MagicEffect::Adjust.address(), &adjustJmp, sizeof(adjustJmp));
+            auto restartJmp = AbsoluteJumpAssembly(reinterpret_cast<std::uintptr_t>(std::addressof(MagicEffectPotencyFlags::Restart)));
+            REL::safe_write(RE::Address::MagicEffect::Restart.address(), &restartJmp, sizeof(restartJmp));
             logger::info("\"MagicEffectPotencyFlags\" patch installed!");
         }
         else
