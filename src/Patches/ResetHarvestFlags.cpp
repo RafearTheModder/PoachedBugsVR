@@ -1,4 +1,5 @@
 #include "ResetHarvestFlags.h"
+#include "SKSE/Trampoline.h"
 
 #include "Addresses.h"
 
@@ -7,6 +8,11 @@ namespace Patch
     void ResetHarvestFlags::InstallPatch() {
         if(settings.resetHarvestFlags)
         {
+            SKSE::Trampoline& trampoline = SKSE::GetTrampoline();
+
+            SKSE::AllocTrampoline(1 << 4);
+            originalSetEmpty = trampoline.write_call<5>(RE::Address::HarvestedFlags::SetEmpty.address(), SetEmpty);
+
             logger::info("\"Reset harvest flags\" patch installed!");
         }
         else
