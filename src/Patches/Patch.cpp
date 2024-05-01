@@ -9,6 +9,7 @@
 #include "PerkEntrySpellCasterCorrection.h"
 #include "PowerAttackStaminaRequirement.h"
 #include "AccumulateMagnitudeScaling.h"
+#include "ResetHarvestFlags.h"
 
 namespace Patch
 {
@@ -23,5 +24,6 @@ namespace Patch
         PerkEntrySpellCasterCorrection::InstallPatch();
         PowerAttackStaminaRequirement::InstallPatch();
         AccumulateMagnitudeScaling::InstallPatch();
+        ResetHarvestFlags::InstallPatch();
     }
 } // namespace Patch

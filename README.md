@@ -9,6 +9,7 @@ Fixes (enabled by default, unless otherwise specified):
 * perkEntrySpellCasterFix - Makes it so that the perk owner is recognized as the one who cast the spell on the target, rather than the target casting on themself
 * powerAttacksStaminaRequirementNPC - Prevent NPCs from power attacking unless they have enough stamina for the full cost of the power attack. Makes frost magic and stamina draining poisons/spells more useful
 * powerAttacksStaminaRequirementPlayer - (DOES NOT ACTUALLY WORK CURRENTLY. Will likely need to be implemented within Planck instead. Disabled here by default). Prevent the player from power attacking unless they have enough stamina for the full cost of the power attack
+* resetHarvestFlags - Corrects an issue where various harvestable plants fail to correctly save the fact they have respawned, causing a save and reload to result in them suddenly being harvested again inexplicably
 
 Tweaks (disabled by default, unless otherwise specified):
 * poisonsUseOtherResistances - Poisons effects are resisted by their respective resist actor values, instead of always being resisted by poison resistance

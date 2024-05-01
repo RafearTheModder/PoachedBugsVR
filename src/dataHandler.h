@@ -20,6 +20,7 @@ struct settingsStorage
 	bool powerAttacksStaminaRequirementNPC=true;
 	bool powerAttacksStaminaRequirementPlayer=false;
 	bool accumulateMagnitudeScaling=false;
+	bool resetHarvestFlags=true;
 };
 
 extern settingsStorage settings;
