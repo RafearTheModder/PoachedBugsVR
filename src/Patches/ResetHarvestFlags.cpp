@@ -11,7 +11,7 @@ namespace Patch
         }
         else
         {
-            logger::info("\"Reet harvest flags\" patch is NOT enabled... skipping.");
+            logger::info("\"Reset harvest flags\" patch is NOT enabled... skipping.");
         }
     };
 
