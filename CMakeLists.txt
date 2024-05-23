@@ -126,34 +126,14 @@ find_path(CLIB_UTIL_INCLUDE_DIRS "ClibUtil/detail/SimpleIni.h")
 
 # ---- Add source files ----
 
-set(SOURCES
-	src/main.cpp
-	src/Patches/Patch.cpp
-	src/Patches/ScrollExp.cpp
-	src/Patches/StaffExp.cpp
-	src/Patches/ReflectDamage.cpp
-	src/Patches/PoisonResistance.cpp
-	src/Patches/ImproveAllEnchantmentEffects.cpp
-	src/Patches/PerkEntryMultipleSpellsApplication.cpp
-	src/Patches/PerkEntrySpellCasterCorrection.cpp
-	src/Patches/PowerAttackStaminaRequirement.cpp
-	src/Patches/AccumulateMagnitudeScaling.cpp
-	src/Patches/ResetHarvestFlags.cpp
-	src/dataHandler.cpp
-	src/PCH.h
-	src/Patches/Patch.h
-	src/Patches/ScrollExp.h
-	src/Patches/StaffExp.h
-	src/Patches/ReflectDamage.h
-	src/Patches/PoisonResistance.h
-	src/Patches/ImproveAllEnchantmentEffects.h
-	src/Patches/PerkEntryMultipleSpellsApplication.h
-	src/Patches/PerkEntrySpellCasterCorrection.h
-	src/Patches/PowerAttackStaminaRequirement.h
-	src/Patches/AccumulateMagnitudeScaling.h
-	src/Patches/ResetHarvestFlags.h
-	src/dataHandler.h
-	src/Addresses.h
+file(
+  GLOB_RECURSE
+  SOURCES
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp
+  ${CMAKE_CURRENT_BINARY_DIR}/version.rc
 )
 
 source_group(
