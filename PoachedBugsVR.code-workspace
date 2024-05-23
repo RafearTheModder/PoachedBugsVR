@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../CommonLibVR"
+		},
+		{
+			"path": "../skyrim_vr_address_library"
 		}
 	],
 	"settings": {
@@ -101,7 +104,8 @@
 			"cwctype": "cpp",
 			"regex": "cpp",
 			"stack": "cpp",
-			"unordered_set": "cpp"
+			"unordered_set": "cpp",
+			"future": "cpp"
 		}
 	}
 }
