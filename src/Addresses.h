@@ -6,6 +6,8 @@ namespace RE
 {
 	namespace Address
 	{
+        inline const REL::Relocation<std::uintptr_t> OnFrameUpdate(REL::ID(35565).address() + 0x33);
+
         namespace ReflectDamage
         {
             inline const REL::Relocation<std::uintptr_t> CompareReflectDamageAV{REL::ID(42842).address() + 0x761};

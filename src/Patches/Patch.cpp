@@ -9,6 +9,7 @@
 #include "PerkEntrySpellCasterCorrection.h"
 #include "PowerAttackStaminaRequirement.h"
 #include "AccumulateMagnitudeScaling.h"
+#include "DrawnBowDetection.h"
 
 namespace Patch
 {
@@ -23,5 +24,6 @@ namespace Patch
         PerkEntrySpellCasterCorrection::InstallPatch();
         PowerAttackStaminaRequirement::InstallPatch();
         AccumulateMagnitudeScaling::InstallPatch();
+        DrawnBowDetection::InstallPatch();
     }
 } // namespace Patch
