@@ -10,6 +10,7 @@
 #include "PowerAttackStaminaRequirement.h"
 #include "AccumulateMagnitudeScaling.h"
 #include "DrawnBowDetection.h"
+#include "ResetHarvestFlags.h"
 
 namespace Patch
 {
@@ -25,5 +26,6 @@ namespace Patch
         PowerAttackStaminaRequirement::InstallPatch();
         AccumulateMagnitudeScaling::InstallPatch();
         DrawnBowDetection::InstallPatch();
+        ResetHarvestFlags::InstallPatch();
     }
 } // namespace Patch

@@ -9,6 +9,7 @@ void dataHandler::readSettings() {
 	ini.LoadFile(SETTINGFILE_PATH);
 
 	// (Relatively) safe fixes
+	settings.resetHarvestFlags = ini.GetBoolValue("Fixes", "resetHarvestFlags", true);
 	settings.improveAllEnchantmentEffects = ini.GetBoolValue("Fixes", "improveAllEnchantmentEffects", true);
 	settings.perkEntrySpellCasterFix = ini.GetBoolValue("Fixes", "perkEntrySpellCasterFix", true);
 	settings.powerAttacksStaminaRequirementNPC = ini.GetBoolValue("Fixes", "powerAttacksStaminaRequirementNPC", true);

@@ -21,6 +21,7 @@ struct settingsStorage
 	bool powerAttacksStaminaRequirementPlayer=false;
 	bool accumulateMagnitudeScaling=false;
 	bool drawnBowDetection=true;
+	bool resetHarvestFlags=true;
 };
 
 extern settingsStorage settings;
