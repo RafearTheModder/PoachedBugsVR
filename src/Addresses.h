@@ -55,7 +55,7 @@ namespace RE
         namespace HarvestedFlags
         {
             // Awaiting addition to address library
-            inline const REL::Relocation<std::uintptr_t> setEmpty{REL::ID(18843).address() + 0x31c};
+            inline const REL::Relocation<std::uintptr_t> SetEmpty{REL::ID(18843).address() + 0x31c};
         }
 	}
 }
