@@ -32,20 +32,25 @@ namespace Patch
             // We may need to also account for the bow release states at some point, but for now that will be left alone.
             if (player->bowState == RE::VR_Bow_State::kArrowKnocked)
             {
-                if (player->currentBowDrawAmount >= 90)
+                if (player->currentBowDrawAmount >= settings.drawnBowSettings.completeThreshold)
                 {
                     player->actorState1.meleeAttackState = RE::ATTACK_STATE_ENUM::kBowDrawn;
                     expectedAttackState = RE::ATTACK_STATE_ENUM::kBowDrawn;
                 }
-                else if (player->currentBowDrawAmount >= 20)
+                else if (player->currentBowDrawAmount >= settings.drawnBowSettings.midThreshold)
                 {
                     player->actorState1.meleeAttackState = RE::ATTACK_STATE_ENUM::kBowAttached;
                     expectedAttackState = RE::ATTACK_STATE_ENUM::kBowAttached;
                 }
-                else
+                else if(player->currentBowDrawAmount >= settings.drawnBowSettings.startThreshold)
                 {
                     player->actorState1.meleeAttackState = RE::ATTACK_STATE_ENUM::kBowDraw;
                     expectedAttackState = RE::ATTACK_STATE_ENUM::kBowDraw;
+                }
+                else
+                {
+                    player->actorState1.meleeAttackState = RE::ATTACK_STATE_ENUM::kNone;
+                    expectedAttackState = RE::ATTACK_STATE_ENUM::kNone;
                 }
             }
         }

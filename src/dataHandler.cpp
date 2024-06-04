@@ -25,4 +25,9 @@ void dataHandler::readSettings() {
 	settings.perkEntryMultipleSpellsApplication = ini.GetBoolValue("Tweaks", "perkEntryMultipleSpellsApplication", false);
 	settings.accumulateMagnitudeScaling = ini.GetBoolValue("Tweaks", "accumulateMagnitudeScaling", false);
 	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Tweaks", "reflectDamageLimitRemoval", true);
+
+	// Advanced settings that control details of the behavior of other patches if enabled
+	settings.drawnBowSettings.startThreshold = ini.GetDoubleValue("DrawnBow", "startThreshold", 0.2);
+	settings.drawnBowSettings.midThreshold = ini.GetDoubleValue("DrawnBow", "midThreshold", 0.4);
+	settings.drawnBowSettings.completeThreshold = ini.GetDoubleValue("DrawnBow", "completeThreshold", 0.8);
 }

@@ -7,6 +7,13 @@ public:
 	static void readSettings();
 };
 
+struct drawnBowAdvancedSettings
+{
+	double startThreshold = 0.20;
+	double midThreshold = 0.4;
+	double completeThreshold = 0.8;
+};
+
 struct settingsStorage
 {
 	bool reflectDamageLimitRemoval=true;
@@ -22,6 +29,8 @@ struct settingsStorage
 	bool accumulateMagnitudeScaling=false;
 	bool drawnBowDetection=true;
 	bool resetHarvestFlags=true;
+
+	drawnBowAdvancedSettings drawnBowSettings;
 };
 
 extern settingsStorage settings;
