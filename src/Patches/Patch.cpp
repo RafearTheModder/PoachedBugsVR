@@ -1,21 +1,26 @@
 #include "Patch.h"
 #include "dataHandler.h"
-#include "ReflectDamage.h"
-#include "ScrollExp.h"
-#include "PoisonResistance.h"
-#include "StaffExp.h"
-#include "ImproveAllEnchantmentEffects.h"
-#include "PerkEntryMultipleSpellsApplication.h"
-#include "PerkEntrySpellCasterCorrection.h"
-#include "PowerAttackStaminaRequirement.h"
-#include "AccumulateMagnitudeScaling.h"
 #include "DrawnBowDetection.h"
-#include "ResetHarvestFlags.h"
+
+// Patches below this line ultimately originate from Kernal's Scrambled Bugs. See README.MD for the licensing implications of this.
+#include "Scrambled/ReflectDamage.h"
+#include "Scrambled/ScrollExp.h"
+#include "Scrambled/PoisonResistance.h"
+#include "Scrambled/StaffExp.h"
+#include "Scrambled/ImproveAllEnchantmentEffects.h"
+#include "Scrambled/PerkEntryMultipleSpellsApplication.h"
+#include "Scrambled/PerkEntrySpellCasterCorrection.h"
+#include "Scrambled/PowerAttackStaminaRequirement.h"
+#include "Scrambled/AccumulateMagnitudeScaling.h"
+#include "Scrambled/ResetHarvestFlags.h"
 
 namespace Patch
 {
     void InstallAllPatches()
     {
+        DrawnBowDetection::InstallPatch();
+
+        // Patches below this line ultimately originate from Kernal's Scrambled Bugs. See README.MD for the licensing implications of this.
         ReflectDamage::InstallPatch();
         ScrollExp::InstallPatch();
         PoisonResistance::InstallPatch();
@@ -25,7 +30,6 @@ namespace Patch
         PerkEntrySpellCasterCorrection::InstallPatch();
         PowerAttackStaminaRequirement::InstallPatch();
         AccumulateMagnitudeScaling::InstallPatch();
-        DrawnBowDetection::InstallPatch();
         ResetHarvestFlags::InstallPatch();
     }
 } // namespace Patch
