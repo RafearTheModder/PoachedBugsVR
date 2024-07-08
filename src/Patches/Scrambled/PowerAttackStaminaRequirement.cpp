@@ -1,3 +1,8 @@
+/*
+    WARNING: This file is NOT MIT licensed! It is adapted from Scrambled Bugs under non-transferable permission from KernalsEgg.
+             See the license section of README.md for further explanation.
+*/
+
 #include "PowerAttackStaminaRequirement.h"
 #include "SKSE/Trampoline.h"
 
