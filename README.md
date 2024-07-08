@@ -50,6 +50,7 @@ cmake --build buildvr --config Release
 
 ## License
 [MIT](LICENSE) - Applies to all code except under the src/Patches/Scrambled subdirectory
+
 NOTE: All code contained within the src/Patches/Scrambled directory is adapted from Scrambled Bugs, located [here](https://github.com/KernalsEgg/SKSE64Plugins).
       As such, that portion of the code does NOT fall under MIT licensing, and is instead all rights reserved to KernalsEgg, who has kindly granted me 
       non-transferrable permission to use it here.
