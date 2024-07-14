@@ -57,5 +57,12 @@ namespace RE
             // Awaiting addition to address library
             inline const REL::Relocation<std::uintptr_t> SetEmpty{REL::ID(18843).address() + 0x31c};
         }
+
+        namespace LeveledCharacters
+        {
+            /// <summary>1.5.97.0: SkyrimSE.exe + 0x1384D0 (12448), 1.6.318.0: SkyrimSE.exe + 0x13EED0</summary>
+            inline const REL::Relocation<std::uintptr_t> GetAllBelowForce{REL::Offset(0x1384D0).address()};
+            // inline const REL::Relocation<std::uintptr_t> GetAllBelowForce{REL::ID(12448).address()};
+        }
 	}
 }

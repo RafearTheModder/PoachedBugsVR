@@ -13,6 +13,7 @@
 #include "Scrambled/PowerAttackStaminaRequirement.h"
 #include "Scrambled/AccumulateMagnitudeScaling.h"
 #include "Scrambled/ResetHarvestFlags.h"
+#include "Scrambled/LevelledCharacter.h"
 
 namespace Patch
 {
@@ -31,5 +32,6 @@ namespace Patch
         PowerAttackStaminaRequirement::InstallPatch();
         AccumulateMagnitudeScaling::InstallPatch();
         ResetHarvestFlags::InstallPatch();
+        LevelledCharacter::InstallPatch();
     }
 } // namespace Patch

@@ -20,6 +20,7 @@ Tweaks (disabled by default, unless otherwise specified):
 * perkEntryMultipleSpellsApplication - Allows multiple perk entry points to all simultaneously apply spells to their relevant targets, rather than only one being allowed. Will cause issues for mods that attempt to work around this limitation on their own.
 * accumulateMagnitudeScaling - Makes accumulate magnitude type effects (such as wards) increase in maximum magnitude instead of accumulation rate when having their effectiveness increased by things such as dual casting or perk entry points
 * reflectDamageLimitRemoval - (enabled by default) Removes the 100% cap on the reflect damage actor value
+* levelledCharacter - Allows "very hard" levelled enemies to spawn in the same enemies as just "hard" level, unlike in the unedited basegame where they *must* be higher level if available even if it breaks the normal encounter zone rules
 
 ## Requirements
 * [CMake](https://cmake.org/)

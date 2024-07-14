@@ -29,6 +29,7 @@ struct settingsStorage
 	bool accumulateMagnitudeScaling=false;
 	bool drawnBowDetection=true;
 	bool resetHarvestFlags=true;
+	bool levelledCharacter=false;
 
 	drawnBowAdvancedSettings drawnBowSettings;
 };
