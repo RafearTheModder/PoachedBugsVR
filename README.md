@@ -22,6 +22,8 @@ Tweaks (disabled by default, unless otherwise specified):
 * accumulateMagnitudeScaling - Makes accumulate magnitude type effects (such as wards) increase in maximum magnitude instead of accumulation rate when having their effectiveness increased by things such as dual casting or perk entry points
 * reflectDamageLimitRemoval - (enabled by default) Removes the 100% cap on the reflect damage actor value
 * levelledCharacter - Allows "very hard" levelled enemies to spawn in the same enemies as just "hard" level, unlike in the unedited basegame where they *must* be higher level if available even if it breaks the normal encounter zone rules
+* difficultyMultipliers.commandedActors - makes summoned, reanimated, and mind controlled allies of the player use the same difficulty modifier for damage received as the player instead of the NPC/enemy modifier
+* difficultyMultipliers.teammates - makes followers use the same difficulty modifier for damage received as the player instead of the NPC/enemy modifier
 
 ## Requirements
 * [CMake](https://cmake.org/)

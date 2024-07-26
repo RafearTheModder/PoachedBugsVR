@@ -14,6 +14,12 @@ struct drawnBowAdvancedSettings
 	double completeThreshold = 0.8;
 };
 
+struct DifficultyMultipliers
+{
+	bool commandedActors = false;
+	bool teammates = false;
+};
+
 struct settingsStorage
 {
 	bool reflectDamageLimitRemoval=true;
@@ -31,6 +37,7 @@ struct settingsStorage
 	bool resetHarvestFlags=true;
 	bool levelledCharacter=false;
 	bool weaponCharge=true;
+	DifficultyMultipliers difficultyMultipliers;
 
 	drawnBowAdvancedSettings drawnBowSettings;
 };

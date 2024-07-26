@@ -27,6 +27,8 @@ void dataHandler::readSettings() {
 	settings.accumulateMagnitudeScaling = ini.GetBoolValue("Tweaks", "accumulateMagnitudeScaling", false);
 	settings.reflectDamageLimitRemoval = ini.GetBoolValue("Tweaks", "reflectDamageLimitRemoval", true);
 	settings.levelledCharacter = ini.GetBoolValue("Tweaks", "levelledCharacter", true);
+	settings.difficultyMultipliers.commandedActors = ini.GetBoolValue("Tweaks", "difficultyMultipliers.commandedActors", false);
+	settings.difficultyMultipliers.teammates = ini.GetBoolValue("Tweaks", "difficultyMultipliers.teammates", false);
 
 	// Advanced settings that control details of the behavior of other patches if enabled
 	settings.drawnBowSettings.startThreshold = ini.GetDoubleValue("DrawnBow", "startThreshold", 0.2);

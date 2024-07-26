@@ -15,6 +15,7 @@
 #include "Scrambled/ResetHarvestFlags.h"
 #include "Scrambled/LevelledCharacter.h"
 #include "Scrambled/WeaponCharge.h"
+#include "Scrambled/DifficultyMultipliers.h"
 
 namespace Patch
 {
@@ -35,5 +36,6 @@ namespace Patch
         ResetHarvestFlags::InstallPatch();
         LevelledCharacter::InstallPatch();
         WeaponCharge::InstallPatch();
+        DifficultyMultipliers::InstallPatch();
     }
 } // namespace Patch
