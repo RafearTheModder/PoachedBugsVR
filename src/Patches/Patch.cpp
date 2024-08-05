@@ -14,6 +14,7 @@
 #include "Scrambled/AccumulateMagnitudeScaling.h"
 #include "Scrambled/ResetHarvestFlags.h"
 #include "Scrambled/LevelledCharacter.h"
+#include "Scrambled/WeaponCharge.h"
 
 namespace Patch
 {
@@ -33,5 +34,6 @@ namespace Patch
         AccumulateMagnitudeScaling::InstallPatch();
         ResetHarvestFlags::InstallPatch();
         LevelledCharacter::InstallPatch();
+        WeaponCharge::InstallPatch();
     }
 } // namespace Patch

@@ -16,6 +16,7 @@ void dataHandler::readSettings() {
 	// The player side of the power attack stamina patch may conflict with Planck, and will definitely be useless with it redoing the power attack code.
 	settings.powerAttacksStaminaRequirementPlayer = ini.GetBoolValue("Fixes", "powerAttacksStaminaRequirementPlayer", false);
 	settings.drawnBowDetection = ini.GetBoolValue("Fixes", "drawnBowDetection", true);
+	settings.weaponCharge = ini.GetBoolValue("Fixes", "weaponCharge", true);
 
 	// Tweaks with extra dependence/compatibility concerns
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("Tweaks", "poisonsUseOtherResistances", false);

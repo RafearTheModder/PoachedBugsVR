@@ -30,6 +30,7 @@ struct settingsStorage
 	bool drawnBowDetection=true;
 	bool resetHarvestFlags=true;
 	bool levelledCharacter=false;
+	bool weaponCharge=true;
 
 	drawnBowAdvancedSettings drawnBowSettings;
 };

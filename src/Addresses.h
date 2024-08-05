@@ -64,5 +64,10 @@ namespace RE
             inline const REL::Relocation<std::uintptr_t> GetAllBelowForce{REL::Offset(0x1384D0).address()};
             // inline const REL::Relocation<std::uintptr_t> GetAllBelowForce{REL::ID(12448).address()};
         }
+
+        namespace WeaponCharge
+        {
+            inline const REL::Relocation<std::uintptr_t> UpdateEquippedEnchantmentCharge{REL::ID(37803).address()};
+        }
 	}
 }
