@@ -8,6 +8,12 @@
 		},
 		{
 			"path": "../skyrim_vr_address_library"
+		},
+		{
+			"path": "../kernalsPlugins"
+		},
+		{
+			"path": "../vr_address_tools"
 		}
 	],
 	"settings": {
