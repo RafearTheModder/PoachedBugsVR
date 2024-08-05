@@ -4,17 +4,19 @@
 */
 
 #include "LevelledCharacter.h"
+#include "SKSE/Trampoline.h"
 
 #include "Addresses.h"
-#include "Utilities/Assembly.h"
 
 namespace Patch
 {
     void LevelledCharacter::InstallPatch() {
         if(settings.levelledCharacter)
         {
-            auto GetAllBelowForceJmp = Assembly::AbsoluteJumpAssembly(reinterpret_cast<std::uintptr_t>(std::addressof(LevelledCharacter::GetAllBelowForce)));
-            REL::safe_write(RE::Address::LeveledCharacters::GetAllBelowForce.address(), &GetAllBelowForceJmp, sizeof(GetAllBelowForceJmp));
+            SKSE::Trampoline& trampoline = SKSE::GetTrampoline();
+
+            SKSE::AllocTrampoline(1 << 4);
+            trampoline.write_branch<5>(RE::Address::LeveledCharacters::GetAllBelowForce.address(), GetAllBelowForce);
 
             logger::info("\"Levelled Character\" patch installed!");
         }
