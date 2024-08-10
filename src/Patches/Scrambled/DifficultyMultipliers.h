@@ -17,7 +17,6 @@ namespace Patch
 
 	private:
 		static float AdjustHealthDamageToDifficulty(RE::Actor* target, float damage, float onlyReduceDamage);
-		static bool  DamageHealth(RE::Actor* target, float damage, RE::Actor* attacker, bool onlyReduceDamage);
 		static bool  IsCommandedActor(RE::Actor* actor);
 		static bool  IsTeammate(RE::Actor* actor);
 	};

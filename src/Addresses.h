@@ -72,10 +72,5 @@ namespace RE
         {
             inline const REL::Relocation<std::uintptr_t> AdjustHealthDamageToDifficulty{REL::ID(36506).address()};
         }
-
-		namespace DifficultyMultipliers
-		{
-            inline const REL::Relocation<std::uintptr_t> DamageHealth{REL::ID(36345).address()};
-		}
 	}
 }
