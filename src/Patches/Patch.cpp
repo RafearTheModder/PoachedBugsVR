@@ -16,6 +16,7 @@
 #include "Scrambled/LevelledCharacter.h"
 #include "Scrambled/WeaponCharge.h"
 #include "Scrambled/DifficultyMultipliers.h"
+#include "Scrambled/EnchantmentCost.h"
 
 namespace Patch
 {
@@ -37,5 +38,6 @@ namespace Patch
         LevelledCharacter::InstallPatch();
         WeaponCharge::InstallPatch();
         DifficultyMultipliers::InstallPatch();
+        EnchantmentCost::InstallPatch();
     }
 } // namespace Patch

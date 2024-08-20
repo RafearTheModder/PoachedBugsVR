@@ -12,6 +12,7 @@ Fixes (enabled by default, unless otherwise specified):
 * drawnBowDetection (VR Unique Fix) - In VR, the IsAttacking and GetAttackState conditions and Papyrus functions are broken for the player and will always return false/kNone when drawing a bow, unlike in flat/SE. This patch works around this by monitoring the VR specific bow draw state and overriding the attack state variable for the player actor when an arrow is notched and drawn back. This patch is required for the full functionality of mods such as JaySerpa's "NPCs Take Cover" (specifically the feature where an NPC warning you to back off will recognize you readying a bow shot and charging you before you release it)
 * resetHarvestFlags - Corrects an issue where various harvestable plants fail to correctly save the fact they have respawned, causing a save and reload to result in them suddenly being harvested again inexplicably
 * weaponCharge - Allows enchanted weapons to be fully restored instead of being capped to the charge level when they were equipped or recharged last
+* enchantmentCost - Save the enchantment cost and value for player enchanted gear to fix a bug that causes these values to go crazy on game reload
 
 Tweaks (disabled by default, unless otherwise specified):
 * poisonsUseOtherResistances - Poisons effects are resisted by their respective resist actor values, instead of always being resisted by poison resistance

@@ -1,6 +1,7 @@
 #include "Patches/Patch.h"
 #include "dataHandler.h"
 
+#include "Serialization.h"
 
 extern "C" DLLEXPORT bool SKSEAPI SKSEPlugin_Query(const SKSE::QueryInterface* a_skse, SKSE::PluginInfo* a_info)
 {
@@ -63,6 +64,11 @@ extern "C" DLLEXPORT bool SKSEAPI SKSEPlugin_Load(const SKSE::LoadInterface* a_s
 	dataHandler::readSettings();
 
 	Patch::InstallAllPatches();
+
+	auto serializationInterface = SKSE::GetSerializationInterface();
+	serializationInterface->SetUniqueID(Serialization::kUniqueID);
+	serializationInterface->SetSaveCallback(std::addressof(Serialization::Save));
+	serializationInterface->SetLoadCallback(std::addressof(Serialization::Load));
 
 	return true;
 }

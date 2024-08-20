@@ -37,6 +37,7 @@ struct settingsStorage
 	bool resetHarvestFlags=true;
 	bool levelledCharacter=false;
 	bool weaponCharge=true;
+	bool enchantmentCost=true;
 	DifficultyMultipliers difficultyMultipliers;
 
 	drawnBowAdvancedSettings drawnBowSettings;

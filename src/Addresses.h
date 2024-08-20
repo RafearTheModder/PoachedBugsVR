@@ -72,5 +72,10 @@ namespace RE
         {
             inline const REL::Relocation<std::uintptr_t> AdjustHealthDamageToDifficulty{REL::ID(36506).address()};
         }
+
+		namespace EnchantmentCost
+		{
+            inline const REL::Relocation<std::uintptr_t> Compare{REL::ID(35284).address() + 0x72};
+		}
 	}
 }
