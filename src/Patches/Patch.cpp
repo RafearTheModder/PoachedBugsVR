@@ -18,6 +18,7 @@
 #include "Scrambled/DifficultyMultipliers.h"
 #include "Scrambled/EnchantmentCost.h"
 #include "Scrambled/ActorValuePercentage.h"
+#include "Scrambled/ArmorWeightModPerkEntry.h"
 
 namespace Patch
 {
@@ -41,5 +42,6 @@ namespace Patch
         DifficultyMultipliers::InstallPatch();
         EnchantmentCost::InstallPatch();
         ActorValuePercentage::InstallPatch();
+        ArmorWeightModPerkEntry::InstallPatch();
     }
 } // namespace Patch

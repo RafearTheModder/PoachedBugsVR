@@ -39,6 +39,7 @@ struct settingsStorage
 	bool weaponCharge=true;
 	bool enchantmentCost=true;
 	bool actorValuePercentage=true;
+	bool armorWeightModPerkEntry=true;
 	DifficultyMultipliers difficultyMultipliers;
 
 	drawnBowAdvancedSettings drawnBowSettings;

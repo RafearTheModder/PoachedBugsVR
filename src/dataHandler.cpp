@@ -19,6 +19,7 @@ void dataHandler::readSettings() {
 	settings.weaponCharge = ini.GetBoolValue("Fixes", "weaponCharge", true);
 	settings.enchantmentCost = ini.GetBoolValue("Fixes", "enchantmentCost", true);
 	settings.actorValuePercentage = ini.GetBoolValue("Fixes", "actorValuePercentage", true);
+	settings.armorWeightModPerkEntry = ini.GetBoolValue("Fixes", "armorWeightModPerkEntry", true);
 
 	// Tweaks with extra dependence/compatibility concerns
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("Tweaks", "poisonsUseOtherResistances", false);

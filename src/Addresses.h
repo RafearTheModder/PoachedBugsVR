@@ -84,5 +84,10 @@ namespace RE
             inline const REL::Relocation<std::uintptr_t> GetHealthPercentage{REL::ID(36349).address()};
             inline const REL::Relocation<std::uintptr_t> GetStaminaPercentage{REL::ID(36348).address()};
         }
+
+		namespace ArmorWeightModPerkEntry
+		{
+            inline const REL::Relocation<std::uintptr_t> GetInventoryWeight{REL::ID(15883).address()};
+		}
 	}
 }
