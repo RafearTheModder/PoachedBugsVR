@@ -77,5 +77,12 @@ namespace RE
 		{
             inline const REL::Relocation<std::uintptr_t> Compare{REL::ID(35284).address() + 0x72};
 		}
+
+        namespace ActorValuePercentage
+        {
+            inline const REL::Relocation<std::uintptr_t> GetActorValuePercentage{REL::ID(36347).address()};
+            inline const REL::Relocation<std::uintptr_t> GetHealthPercentage{REL::ID(36349).address()};
+            inline const REL::Relocation<std::uintptr_t> GetStaminaPercentage{REL::ID(36348).address()};
+        }
 	}
 }

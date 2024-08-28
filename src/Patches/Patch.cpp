@@ -17,6 +17,7 @@
 #include "Scrambled/WeaponCharge.h"
 #include "Scrambled/DifficultyMultipliers.h"
 #include "Scrambled/EnchantmentCost.h"
+#include "Scrambled/ActorValuePercentage.h"
 
 namespace Patch
 {
@@ -39,5 +40,6 @@ namespace Patch
         WeaponCharge::InstallPatch();
         DifficultyMultipliers::InstallPatch();
         EnchantmentCost::InstallPatch();
+        ActorValuePercentage::InstallPatch();
     }
 } // namespace Patch

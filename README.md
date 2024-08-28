@@ -13,6 +13,7 @@ Fixes (enabled by default, unless otherwise specified):
 * resetHarvestFlags - Corrects an issue where various harvestable plants fail to correctly save the fact they have respawned, causing a save and reload to result in them suddenly being harvested again inexplicably
 * weaponCharge - Allows enchanted weapons to be fully restored instead of being capped to the charge level when they were equipped or recharged last
 * enchantmentCost - Save the enchantment cost and value for player enchanted gear to fix a bug that causes these values to go crazy on game reload
+* actorValuePercentage - makes GetActorValuePercent, GetHealthPercentage, and GetStaminaPercentage conditions and the GetActorValuePercentage Papyrus function correctly account for temporary buffs and debuffs to maximum actor values
 
 Tweaks (disabled by default, unless otherwise specified):
 * poisonsUseOtherResistances - Poisons effects are resisted by their respective resist actor values, instead of always being resisted by poison resistance
