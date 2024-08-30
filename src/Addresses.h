@@ -89,5 +89,10 @@ namespace RE
 		{
             inline const REL::Relocation<std::uintptr_t> GetInventoryWeight{REL::ID(15883).address()};
 		}
+
+        namespace TrainingMenu
+        {
+            inline const REL::Relocation<std::uintptr_t> GetPermanentActorValue{REL::ID(51794).address() + 0x28c};
+        }
 	}
 }

@@ -19,6 +19,7 @@
 #include "Scrambled/EnchantmentCost.h"
 #include "Scrambled/ActorValuePercentage.h"
 #include "Scrambled/ArmorWeightModPerkEntry.h"
+#include "Scrambled/TrainingMenu.h"
 
 namespace Patch
 {
@@ -43,5 +44,6 @@ namespace Patch
         EnchantmentCost::InstallPatch();
         ActorValuePercentage::InstallPatch();
         ArmorWeightModPerkEntry::InstallPatch();
+        TrainingMenu::InstallPatch();
     }
 } // namespace Patch
