@@ -38,8 +38,10 @@ Tweaks (disabled by default, unless otherwise specified):
 * [Visual Studio Community 2022](https://visualstudio.microsoft.com/)
 	* Desktop development with C++
 * [CommonLibVR](https://github.com/RafearTheModder/CommonLibVR/tree/vr)
-	* You need to build from the RafearTheModder/vr branch (will switch to alandtse/vr if and when changes are upstreamed)
-	* Add this as as an environment variable `CommonLibVRPath`
+	* You need to build from the RafearTheModder/vr branch
+	* Either: 
+		* use the git submodules approach to pull this into `extern/CommonLibVR` using the command `git submodule update --init --recursive`
+		* or add the path to a copy of the repo as an environment variable `CommonLibVRPath`
 
 ## User Requirements
 * [VR Address Library for SKSEVR](https://www.nexusmods.com/skyrimspecialedition/mods/58101)
