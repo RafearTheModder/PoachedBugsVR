@@ -4,12 +4,6 @@
 			"path": "."
 		},
 		{
-			"path": "../CommonLibVR"
-		},
-		{
-			"path": "../skyrim_vr_address_library"
-		},
-		{
 			"path": "../kernalsPlugins"
 		},
 		{
