@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 set(NAME "PoachedBugsVR")
-set(VERSION 0.1.0)
+set(VERSION 0.5.0)
 
 # ---- Options ----
 
