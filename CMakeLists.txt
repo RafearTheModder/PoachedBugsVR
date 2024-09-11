@@ -1,6 +1,41 @@
 cmake_minimum_required(VERSION 3.20)
 set(NAME "PoachedBugsVR")
-set(VERSION 0.5.0)
+
+# Find Git executable
+find_package(Git QUIET)
+
+# Check if Git is found
+if(GIT_FOUND)
+    # Get the latest tag
+    execute_process(
+        COMMAND git describe --exact-match --tags --abbrev=0
+        OUTPUT_VARIABLE RAW_VERSION
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_QUIET
+    )
+endif()
+
+if(NOT ${RAW_VERSION} STREQUAL "")
+    # Parse version from tag (e.g., v1.2.3)
+    string(REGEX MATCH "release/v([0-9]+)\\.([0-9]+)\\.([0-9]+)" _VERSION_MATCH "${RAW_VERSION}")
+    set(PROJECT_VERSION_MAJOR "${CMAKE_MATCH_1}")
+    set(PROJECT_VERSION_MINOR "${CMAKE_MATCH_2}")
+    set(PROJECT_VERSION_PATCH "${CMAKE_MATCH_3}")
+else()
+    # Set default version if Git is not found
+    set(RAW_VERSION "v0.0.0-experimentalScratchBuild")
+    set(PROJECT_VERSION_MAJOR "0")
+    set(PROJECT_VERSION_MINOR "0")
+    set(PROJECT_VERSION_PATCH "0")
+endif()
+message(
+	STATUS
+		"Project version pulled from git tags: ${RAW_VERSION}\n"
+		"PROJECT_VERSION_MAJOR: ${PROJECT_VERSION_MAJOR}\n"
+		"PROJECT_VERSION_MINOR: ${PROJECT_VERSION_MINOR}\n"
+		"PROJECT_VERSION_PATCH: ${PROJECT_VERSION_PATCH}\n"
+)
+set(VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 
 # ---- Options ----
 

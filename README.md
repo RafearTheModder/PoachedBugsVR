@@ -54,9 +54,9 @@ Tweaks (disabled by default, unless otherwise specified):
 
 ### VR
 ```
-cmake --preset vs2022-windows-vcpkg-vr
-cmake --build buildvr --config Release
+cmake --preset vs2022-windows-vcpkg-vr ; cmake --build buildvr --config Release
 ```
+Do this as one line to ensure that the version tag automation applies!
 
 ## License
 [MIT](LICENSE) - Excludes files in the src/Patches/Scrambled subdirectory
