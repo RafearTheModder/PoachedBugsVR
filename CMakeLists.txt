@@ -8,8 +8,16 @@ find_package(Git QUIET)
 if(GIT_FOUND)
     # Get the latest tag
     execute_process(
-        COMMAND git describe --exact-match --tags --abbrev=0
+        COMMAND git describe --tags
         OUTPUT_VARIABLE RAW_VERSION
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_QUIET
+    )
+
+    # Get the commit hash for the build
+    execute_process(
+        COMMAND git rev-parse HEAD
+        OUTPUT_VARIABLE COMMIT_HASH
         OUTPUT_STRIP_TRAILING_WHITESPACE
         ERROR_QUIET
     )
@@ -17,16 +25,22 @@ endif()
 
 if(NOT ${RAW_VERSION} STREQUAL "")
     # Parse version from tag (e.g., v1.2.3)
-    string(REGEX MATCH "release/v([0-9]+)\\.([0-9]+)\\.([0-9]+)" _VERSION_MATCH "${RAW_VERSION}")
+    string(REGEX MATCH "release/v([0-9]+)\\.([0-9]+)\\.([0-9]+)(\\-)?([0-9]+)?(.+)?" _VERSION_MATCH "${RAW_VERSION}")
     set(PROJECT_VERSION_MAJOR "${CMAKE_MATCH_1}")
     set(PROJECT_VERSION_MINOR "${CMAKE_MATCH_2}")
     set(PROJECT_VERSION_PATCH "${CMAKE_MATCH_3}")
+	if(NOT ${CMAKE_MATCH_5} STREQUAL "")
+		set(PROJECT_COMMITS_SINCE_TAG ${CMAKE_MATCH_5})
+	else()
+		set(PROJECT_COMMITS_SINCE_TAG 0)
+	endif()
 else()
     # Set default version if Git is not found
     set(RAW_VERSION "v0.0.0-experimentalScratchBuild")
     set(PROJECT_VERSION_MAJOR "0")
     set(PROJECT_VERSION_MINOR "0")
     set(PROJECT_VERSION_PATCH "0")
+	set(PROJECT_COMMITS_SINCE_TAG 0)
 endif()
 message(
 	STATUS
@@ -34,6 +48,8 @@ message(
 		"PROJECT_VERSION_MAJOR: ${PROJECT_VERSION_MAJOR}\n"
 		"PROJECT_VERSION_MINOR: ${PROJECT_VERSION_MINOR}\n"
 		"PROJECT_VERSION_PATCH: ${PROJECT_VERSION_PATCH}\n"
+		"PROJECT_COMMITS_SINCE_TAG: ${PROJECT_COMMITS_SINCE_TAG}\n"
+		"COMMIT_HASH: ${COMMIT_HASH}\n"
 )
 set(VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 

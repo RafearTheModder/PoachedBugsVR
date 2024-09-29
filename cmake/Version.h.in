@@ -6,6 +6,8 @@ namespace Version
 	inline constexpr std::size_t MAJOR = @PROJECT_VERSION_MAJOR@;
 	inline constexpr std::size_t MINOR = @PROJECT_VERSION_MINOR@;
 	inline constexpr std::size_t PATCH = @PROJECT_VERSION_PATCH@;
+	inline constexpr std::size_t COMMITS_SINCE_TAG = @PROJECT_COMMITS_SINCE_TAG@;
+	inline constexpr auto COMMIT_HASH = "@COMMIT_HASH@"sv;
 	inline constexpr auto NAME = "@PROJECT_VERSION@"sv;
 	inline constexpr auto PROJECT = "@PROJECT_NAME@"sv;
 }

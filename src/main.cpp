@@ -30,7 +30,16 @@ extern "C" DLLEXPORT bool SKSEAPI SKSEPlugin_Query(const SKSE::QueryInterface* a
 	spdlog::set_default_logger(std::move(log));
 	spdlog::set_pattern("%g(%#): [%^%l%$] %v"s);
 
-	logger::info(FMT_STRING("{} v{}"), Version::PROJECT, Version::NAME);
+	if(Version::COMMITS_SINCE_TAG > 0)
+	{
+		logger::info("Running Pre-Release Test Build!");
+		logger::info(FMT_STRING("{} v{} Commits since version tag: {} Commit Hash: {}"),
+								Version::PROJECT, Version::NAME, Version::COMMITS_SINCE_TAG, Version::COMMIT_HASH);
+	}
+	else
+	{
+		logger::info(FMT_STRING("{} v{} Commit Hash: {}"), Version::PROJECT, Version::NAME, Version::COMMIT_HASH);
+	}
 
 	a_info->infoVersion = SKSE::PluginInfo::kVersion;
 	a_info->name = Version::PROJECT.data();
