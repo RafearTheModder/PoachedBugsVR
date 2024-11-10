@@ -14,4 +14,21 @@ namespace REX{
 		static REL::Relocation<func_t> func{ REL::Offset(0x108b00) };
 		return func(effect, duration);
 	}
+
+    void ApplySpellToTarget(RE::SpellItem* spell, RE::Actor* target, RE::Actor* caster)
+    {
+        switch (spell->GetSpellType())
+        {
+            case RE::MagicSystem::SpellType::kDisease:
+            case RE::MagicSystem::SpellType::kAbility:
+            case RE::MagicSystem::SpellType::kAddiction:
+            {
+                target->AddSpell(spell);
+            }
+            default:
+            {
+                caster->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)->CastSpellImmediate(spell, false, target, 1.0F, false, 0.0F, nullptr);
+            }
+        }
+    };
 }
