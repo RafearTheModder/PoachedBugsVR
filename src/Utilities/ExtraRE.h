@@ -5,8 +5,9 @@
 namespace REX{
     /* These set effect duration/magnitude functions would make the most sense in CommonLib, but I do not know the AE/1.6000000000000000000000000 address lib ids...*/
     bool SetEffectMagnitude(RE::Effect* effect, float magnitude);
-
 	bool SetEffectDuration(RE::Effect* effect, std::uint32_t duration);
+
+    void ApplySpellToTarget(RE::SpellItem* spell, RE::Actor* target, RE::Actor* caster);
 
 	// Really shaky on this function's details, so not comfortable submitting it to CommonLib yet
 	template <class T>

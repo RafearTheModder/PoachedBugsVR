@@ -4,6 +4,7 @@
 */
 
 #include "PerkEntryMultipleSpellsApplication.h"
+#include "Utilities/ExtraRE.h"
 #include "SKSE/Trampoline.h"
 
 #include "Addresses.h"
@@ -61,24 +62,6 @@ namespace Patch
         }
     };
 
-    // TODO: Refactor this out to a module for helper functions.
-    void ApplySpellToTarget(RE::SpellItem* spell, RE::Actor* target, RE::Actor* caster)
-    {
-        switch (spell->GetSpellType())
-        {
-            case RE::MagicSystem::SpellType::kDisease:
-            case RE::MagicSystem::SpellType::kAbility:
-            case RE::MagicSystem::SpellType::kAddiction:
-            {
-                target->AddSpell(spell);
-            }
-            default:
-            {
-                caster->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)->CastSpellImmediate(spell, false, target, 1.0F, false, 0.0F, nullptr);
-            }
-        }
-    };
-
     void PerkEntryMultipleSpellsApplication::ApplyAllBashingSpells(std::uint32_t entryPointEnum, RE::Actor* perkedActor, RE::Actor* target, RE::SpellItem** spells)
     {
        std::vector<RE::SpellItem*> spellArray;
@@ -87,7 +70,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
+            REX::ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -99,7 +82,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
+            REX::ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -111,7 +94,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
+            REX::ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -123,7 +106,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
+            REX::ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
@@ -135,7 +118,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, perkedActor, perkedActor);
+            REX::ApplySpellToTarget(spell, perkedActor, perkedActor);
         }
     };
 
@@ -147,7 +130,7 @@ namespace Patch
 
         for (RE::SpellItem* spell : spellArray)
         {
-            ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
+            REX::ApplySpellToTarget(spell, target, settings.perkEntrySpellCasterFix ? perkedActor : target);
         }
     };
 
