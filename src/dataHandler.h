@@ -41,6 +41,7 @@ struct settingsStorage
 	bool actorValuePercentage=true;
 	bool armorWeightModPerkEntry=true;
 	bool trainingMenu=true;
+	bool vendorRespawnFix=true;
 	DifficultyMultipliers difficultyMultipliers;
 
 	drawnBowAdvancedSettings drawnBowSettings;
