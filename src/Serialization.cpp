@@ -36,6 +36,7 @@ namespace Serialization
                     {
 			            logger::error(FMT_STRING("Type: {} validation failure, version = {}, length = {}."), type, version, length);
                     }
+					break;
 				}
 				case SerializationData::LastDayRespawned::kType:
 				{
@@ -53,6 +54,7 @@ namespace Serialization
 					{
 						logger::error(FMT_STRING("Type: {} validation failure, version = {}, length = {}."), type, version, length);
 					}
+					break;
 				}
 				default:
 				{
