@@ -28,6 +28,7 @@ Tweaks (disabled by default, unless otherwise specified):
 * levelledCharacter - Allows "very hard" levelled enemies to spawn in the same enemies as just "hard" level, unlike in the unedited basegame where they *must* be higher level if available even if it breaks the normal encounter zone rules
 * difficultyMultipliers.commandedActors - makes summoned, reanimated, and mind controlled allies of the player use the same difficulty modifier for damage received as the player instead of the NPC/enemy modifier
 * difficultyMultipliers.teammates - makes followers use the same difficulty modifier for damage received as the player instead of the NPC/enemy modifier
+* vendorRespawnFix - prevents the inventories of merchants from respawning when saving and loading the game
 
 ## Requirements
 * [CMake](https://cmake.org/)

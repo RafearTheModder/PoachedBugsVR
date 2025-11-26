@@ -21,6 +21,7 @@ void dataHandler::readSettings() {
 	settings.actorValuePercentage = ini.GetBoolValue("Fixes", "actorValuePercentage", true);
 	settings.armorWeightModPerkEntry = ini.GetBoolValue("Fixes", "armorWeightModPerkEntry", true);
 	settings.trainingMenu = ini.GetBoolValue("Fixes", "trainingMenu", true);
+	settings.vendorRespawnFix = ini.GetBoolValue("Fixes", "vendorRespawnFix", true);
 
 	// Tweaks with extra dependence/compatibility concerns
 	settings.poisonsUseOtherResistances = ini.GetBoolValue("Tweaks", "poisonsUseOtherResistances", false);

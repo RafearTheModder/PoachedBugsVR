@@ -20,6 +20,7 @@
 #include "Scrambled/ActorValuePercentage.h"
 #include "Scrambled/ArmorWeightModPerkEntry.h"
 #include "Scrambled/TrainingMenu.h"
+#include "Scrambled/VendorRespawnFix.h"
 
 namespace Patch
 {
@@ -45,5 +46,6 @@ namespace Patch
         ActorValuePercentage::InstallPatch();
         ArmorWeightModPerkEntry::InstallPatch();
         TrainingMenu::InstallPatch();
+        VendorRespawnFix::InstallPatch();
     }
 } // namespace Patch
