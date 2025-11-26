@@ -1,3 +1,15 @@
+# [0.6.0](https://github.com/RafearTheModder/PoachedBugsVR/compare/release/v0.5.0...release/v0.6.0) (2025-11-26)
+
+
+### Bug Fixes
+
+* properly check for IDs missing from Address Library on load ([64e0bae](https://github.com/RafearTheModder/PoachedBugsVR/commit/64e0bae8d76c3c1a7013e9e4443dcbd6733dc440)), closes [#41](https://github.com/RafearTheModder/PoachedBugsVR/issues/41)
+
+
+### Features
+
+* improve version logging details to assist in support and issue tracing ([bdc3318](https://github.com/RafearTheModder/PoachedBugsVR/commit/bdc33189c24d32dbbceb17a75ec9c814f79a2ce8))
+
 # [0.5.0](https://github.com/RafearTheModder/PoachedBugsVR/compare/release/v0.4.1...release/v0.5.0) (2024-09-01)
 
 
