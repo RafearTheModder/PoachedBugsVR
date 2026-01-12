@@ -16,6 +16,7 @@ Fixes (enabled by default, unless otherwise specified):
 * actorValuePercentage - makes GetActorValuePercent, GetHealthPercentage, and GetStaminaPercentage conditions and the GetActorValuePercentage Papyrus function correctly account for temporary buffs and debuffs to maximum actor values
 * armorWeightModPerkEntry - makes it so that only the specific piece(s) of armor that are actually being worn are rendered weightless by things like the Conditioning/Unhindered perk or Steed Stone, rather than all copies of that same armor type
 * trainingMenu - fixes an error that causes the price displayed in the training menu to incorrectly be based on the players skill after buff effects are applied to it, instead of the raw level of the skill
+* vendorRespawnFix - prevents the inventories of merchants from respawning when saving and loading the game
 
 Tweaks (disabled by default, unless otherwise specified):
 * poisonsUseOtherResistances - Poisons effects are resisted by their respective resist actor values, instead of always being resisted by poison resistance
@@ -28,7 +29,6 @@ Tweaks (disabled by default, unless otherwise specified):
 * levelledCharacter - Allows "very hard" levelled enemies to spawn in the same enemies as just "hard" level, unlike in the unedited basegame where they *must* be higher level if available even if it breaks the normal encounter zone rules
 * difficultyMultipliers.commandedActors - makes summoned, reanimated, and mind controlled allies of the player use the same difficulty modifier for damage received as the player instead of the NPC/enemy modifier
 * difficultyMultipliers.teammates - makes followers use the same difficulty modifier for damage received as the player instead of the NPC/enemy modifier
-* vendorRespawnFix - prevents the inventories of merchants from respawning when saving and loading the game
 
 ## Requirements
 * [CMake](https://cmake.org/)
