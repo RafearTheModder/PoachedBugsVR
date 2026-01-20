@@ -21,6 +21,7 @@
 #include "Scrambled/ArmorWeightModPerkEntry.h"
 #include "Scrambled/TrainingMenu.h"
 #include "Scrambled/VendorRespawnFix.h"
+#include "Scrambled/MultiplePickpocketAttempts.h"
 
 namespace Patch
 {
@@ -47,5 +48,6 @@ namespace Patch
         ArmorWeightModPerkEntry::InstallPatch();
         TrainingMenu::InstallPatch();
         VendorRespawnFix::InstallPatch();
+        MultiplePickpocketAttempts::InstallPatch();
     }
 } // namespace Patch

@@ -43,6 +43,7 @@ struct settingsStorage
 	bool trainingMenu=true;
 	bool vendorRespawnFix=true;
 	DifficultyMultipliers difficultyMultipliers;
+	bool multiplePickpocketAttempts=false;
 
 	drawnBowAdvancedSettings drawnBowSettings;
 };

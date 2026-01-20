@@ -94,5 +94,11 @@ namespace RE
         {
             inline const REL::Relocation<std::uintptr_t> GetPermanentActorValue{REL::ID(51794).address() + 0x28c};
         }
+
+		namespace MultiplePickpocketAttempts
+		{
+            inline const REL::Relocation<std::uintptr_t> AttackOnSight{REL::ID(24211).address() + 0x678};
+            inline const REL::Relocation<std::uintptr_t> HasBeenPickpocketed{REL::ID(24211).address() + 0x694};
+		}
 	}
 }
